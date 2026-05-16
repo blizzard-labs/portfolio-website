@@ -1,0 +1,227 @@
+.gallery {
+  background: var(--color-cream);
+  position: relative;
+}
+
+.gallery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-ash), transparent);
+}
+
+.gallery-intro {
+  font-family: var(--font-elegant);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-graphite);
+  max-width: 600px;
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+/* Carousel Wrapper */
+.gallery-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.gallery-carousel {
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-ivory);
+  border: 1px solid var(--color-ash);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  border-color: var(--color-ink);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-ash);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--color-ink);
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: var(--color-graphite);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--color-ash);
+  background: var(--color-ivory);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+  transition: all 0.5s ease;
+}
+
+.gallery-item:hover img {
+  filter: none;
+  transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 26, 0.7) 0%,
+    transparent 40%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-ivory);
+  letter-spacing: 0.1em;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.95);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--color-ivory);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--color-stone);
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border: 1px solid var(--color-charcoal);
+}
+
+.lightbox-caption {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.lightbox-caption .caption-line {
+  width: 40px;
+  height: 1px;
+  background: var(--color-graphite);
+}
+
+.lightbox-caption .caption-text {
+  font-family: var(--font-elegant);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-stone);
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .gallery-carousel-wrapper {
+    flex-direction: column;
+  }
+  
+  .carousel-btn {
+    display: none;
+  }
+}

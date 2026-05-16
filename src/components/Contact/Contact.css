@@ -1,0 +1,236 @@
+.contact {
+  position: relative;
+}
+
+/* Readings Section */
+.readings-section {
+  margin-bottom: 6rem;
+  padding: 3rem;
+  background: var(--color-cream);
+  border: 1px solid var(--color-ash);
+  position: relative;
+}
+
+.readings-section::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--color-pearl);
+  pointer-events: none;
+}
+
+.readings-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.readings-ornament {
+  color: var(--color-stone);
+  font-size: 1rem;
+}
+
+.readings-title {
+  font-family: var(--font-elegant);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+  margin: 0;
+}
+
+.readings-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.reading-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-pearl);
+  color: var(--color-ink);
+  transition: all 0.3s ease;
+}
+
+.reading-item:last-child {
+  border-bottom: none;
+}
+
+.reading-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-stone);
+  min-width: 1.5rem;
+}
+
+.reading-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.reading-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.reading-author {
+  font-family: var(--font-elegant);
+  font-size: 0.9rem;
+  color: var(--color-graphite);
+}
+
+.reading-type {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-stone);
+  letter-spacing: 0.05em;
+}
+
+.reading-arrow {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  margin-top: 0.25rem;
+  color: var(--color-stone);
+}
+
+.reading-item:hover .reading-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Contact Content */
+.contact-content {
+  padding-top: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-description {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--color-charcoal);
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-pearl);
+  color: var(--color-ink);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  padding-left: 0.5rem;
+}
+
+.link-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  min-width: 60px;
+}
+
+.link-value {
+  font-family: var(--font-serif);
+  flex: 1;
+}
+
+.contact-link svg {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Quote */
+.contact-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--color-cream);
+  border: 1px solid var(--color-ash);
+}
+
+.contact-quote blockquote {
+  text-align: center;
+  margin: 0;
+}
+
+.contact-quote p {
+  font-family: var(--font-elegant);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+  margin: 0 0 1.5rem;
+}
+
+.contact-quote cite {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--color-stone);
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-quote {
+    order: -1;
+    padding: 2rem;
+  }
+  
+  .contact-quote p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .readings-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .reading-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .reading-arrow {
+    display: none;
+  }
+}

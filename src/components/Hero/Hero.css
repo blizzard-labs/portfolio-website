@@ -1,0 +1,163 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--color-ivory) 70%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-ornament-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ornament-symbol {
+  font-size: 1.5rem;
+  color: var(--color-stone);
+}
+
+.hero-intro {
+  font-family: var(--font-elegant);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-graphite);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-title span {
+  display: inline-block;
+}
+
+.hero-title .space {
+  width: 0.3em;
+}
+
+.hero-tagline {
+  font-family: var(--font-elegant);
+  font-size: 1.25rem;
+  color: var(--color-graphite);
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+.hero-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-stone), transparent);
+  margin: 2rem auto;
+}
+
+.hero-mission {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-charcoal);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scroll-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--color-stone);
+  transform-origin: top;
+}
+
+.hero-side-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--color-stone);
+  white-space: nowrap;
+}
+
+.hero-side-text.left {
+  left: 1rem;
+}
+
+.hero-side-text.right {
+  right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero-side-text {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  
+  .hero-mission {
+    font-size: 1rem;
+  }
+}

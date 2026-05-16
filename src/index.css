@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Monochrome Palette - Vintage Science Aesthetic */
+  --color-ink: #1a1a1a;
+  --color-ink-light: #2d2d2d;
+  --color-charcoal: #3d3d3d;
+  --color-graphite: #5a5a5a;
+  --color-slate: #7a7a7a;
+  --color-stone: #9a9a9a;
+  --color-ash: #b8b8b8;
+  --color-pearl: #d4d4d4;
+  --color-parchment: #e8e4df;
+  --color-cream: #f5f3ef;
+  --color-ivory: #faf9f6;
+  
+  /* Typography */
+  --font-serif: 'EB Garamond', 'Georgia', serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-elegant: 'Cormorant Garamond', 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 8rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-elegant: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-ink);
+  color: var(--color-ivory);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-graphite);
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3xl);
+}
+
+.section {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-lg);
+}
+
+/* Decorative Elements */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(to right, transparent, var(--color-stone), transparent);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-ash), transparent);
+  margin: var(--space-xl) 0;
+}
+
+/* Vintage Border Styles */
+.vintage-border {
+  border: 1px solid var(--color-ash);
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.vintage-border::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--color-pearl);
+  pointer-events: none;
+}
+
+/* Text Styles */
+.text-elegant {
+  font-family: var(--font-elegant);
+}
+
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-muted {
+  color: var(--color-graphite);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-ink);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: var(--transition-elegant);
+}
+
+.btn:hover {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-stone);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-ivory);
+}
+
+/* Card Styles */
+.card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-ash);
+  padding: var(--space-lg);
+  transition: var(--transition-elegant);
+}
+
+.card:hover {
+  border-color: var(--color-graphite);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
