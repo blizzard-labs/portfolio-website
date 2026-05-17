@@ -277,9 +277,10 @@ export const readings = [
 ];
 
 export const galleryImages = [
+  { src: "/assets/img/gallery/isef_new.jpg", alt: "ISEF 26" },
+  { src: "/assets/img/gallery/award_new.png", alt: "Synopsys Championship" },
   { src: "/assets/img/gallery/candlelight.jpeg", alt: "Candlelight event" },
   { src: "/assets/img/gallery/datagathering.png", alt: "Data gathering" },
-  { src: "/assets/img/gallery/csef.jpg", alt: "CSEF" },
   { src: "/assets/img/gallery/DCsummit.jpg", alt: "DC Summit" },
   { src: "/assets/img/gallery/firstcomplab.jpeg", alt: "First comp lab" },
   { src: "/assets/img/gallery/image.png", alt: "Image" },
@@ -287,6 +288,7 @@ export const galleryImages = [
   { src: "/assets/img/gallery/tedtalk.jpg", alt: "TED Talk" },
   { src: "/assets/img/gallery/5k.jpg", alt: "5K event" },
   { src: "/assets/img/gallery/citycouncil.jpg", alt: "City Council" },
+  { src: "/assets/img/gallery/csef.jpg", alt: "CSEF" },
   { src: "/assets/img/gallery/eegdata.jpeg", alt: "EEG Data" },
   { src: "/assets/img/gallery/firstEngineering.jpg", alt: "First Engineering" },
   { src: "/assets/img/gallery/firstpodium.jpg", alt: "First Podium" },
@@ -297,5 +299,8 @@ export const galleryImages = [
   { src: "/assets/img/gallery/challenge.jpg", alt: "Thermo Fisher JIC" },
   { src: "/assets/img/gallery/archery.jpg", alt: "Archery in Maranchery" },
   { src: "/assets/img/gallery/sonomawalk.jpg", alt: "Sonoma Raceway" },
-  { src: "/assets/img/gallery/zoom.jpeg", alt: "First karting session" },
+  { src: "/assets/img/gallery/griffith_new.png", alt: "Observatory" },
+  { src: "/assets/img/gallery/elementary_new.jpg", alt: "First science fair" },
+  { src: "/assets/img/gallery/group_new.jpg", alt: "ISEF 26 Silicon Valley Delegation" },
+  { src: "/assets/img/gallery/isefawards_new.jpeg", alt: "Comp Bio Awards" },
 ];

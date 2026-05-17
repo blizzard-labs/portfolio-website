@@ -25,10 +25,20 @@ const Research = () => {
         <div>
           <div className="section-header">
             <span className="section-number">02</span>
-            <h2 className="section-title">Research & Projects</h2>
+            <h2 className="section-title">My Research Projects</h2>
             <div className="section-line"></div>
           </div>
-
+          <div className="research-hero-image">
+            <img 
+              src="/assets/img/tractogram3.png" 
+              alt="Tractogram visualization"
+              className="tractogram-image"
+            />
+            <div className="research-image-caption">
+              <span className="caption-line"></span>
+              <span className="caption-text">Fig. 2</span>
+            </div>
+          </div>
           <div className="projects-timeline">
             {projects.map((project, index) => (
               <article
@@ -68,18 +78,6 @@ const Research = () => {
                 </div>
               </article>
             ))}
-          </div>
-
-          <div className="research-hero-image">
-            <img 
-              src="/assets/img/tractogram3.png" 
-              alt="Tractogram visualization"
-              className="tractogram-image"
-            />
-            <div className="research-image-caption">
-              <span className="caption-line"></span>
-              <span className="caption-text">Fig. 2</span>
-            </div>
           </div>
         </div>
       </div>

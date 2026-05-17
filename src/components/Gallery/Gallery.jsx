@@ -7,8 +7,7 @@ const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
 
-  // Split images into pairs for two-row display
-  const imagesPerSlide = 6; // 3 columns x 2 rows
+  const imagesPerSlide = 9; // 3 columns x 3 rows
   const totalSlides = Math.ceil(galleryImages.length / imagesPerSlide);
 
   const nextSlide = () => {
