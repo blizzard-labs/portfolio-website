@@ -144,7 +144,7 @@ export const projects = [
     ],
     resources: [
       { label: "Project Poster", url: "https://drive.google.com/file/d/1H4tsudnYg4-o26NanthVHXAIR48T0lyM/preview" },
-      { label: "Project Video", url: "https://youtu.be/uDxKYNIIAQ0" }
+      { label: "Project Video", url: "https://youtu.be/TzsfR5Whx-k" }
     ],
     tags: ["Arduino", "Bluetooth", "Health", "Mobile App"]
   }

@@ -61,30 +61,41 @@ const Navigation = () => {
             <span className="logo-text">Portfolio</span>
           </motion.div>
 
-          <div className="nav-items">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.id}
-                className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => scrollToSection(item.id)}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                whileHover={{ y: -2 }}
-              >
-                <span className="nav-item-text">{item.label}</span>
-                {activeSection === item.id && (
-                  <motion.div 
-                    className="nav-item-indicator"
-                    layoutId="activeIndicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </motion.button>
-            ))}
+          <div className="nav-right">
+            <div className="nav-items">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.id}
+                  className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={() => scrollToSection(item.id)}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  whileHover={{ y: -2 }}
+                >
+                  <span className="nav-item-text">{item.label}</span>
+                  {activeSection === item.id && (
+                    <motion.div
+                      className="nav-item-indicator"
+                      layoutId="activeIndicator"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </div>
+
+            <a
+              href="/assets/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-resume-btn"
+            >
+              Resume
+            </a>
           </div>
 
-          <button 
+          <button
             className={`mobile-menu-toggle ${mobileMenuOpen ? 'open' : ''}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
@@ -106,6 +117,14 @@ const Navigation = () => {
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="mobile-menu-content">
+              <a
+                href="/assets/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-resume-btn"
+              >
+                Resume
+              </a>
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.id}
