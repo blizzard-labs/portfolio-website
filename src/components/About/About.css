@@ -1,6 +1,7 @@
 .about {
   background: var(--color-cream);
   position: relative;
+  padding-top: calc(var(--space-xl) + 4rem);
 }
 
 /* Social Sidebar */
