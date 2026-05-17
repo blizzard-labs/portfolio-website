@@ -303,4 +303,5 @@ export const galleryImages = [
   { src: "/assets/img/gallery/elementary_new.jpg", alt: "First science fair" },
   { src: "/assets/img/gallery/group_new.jpg", alt: "ISEF 26 Silicon Valley Delegation" },
   { src: "/assets/img/gallery/isefawards_new.jpeg", alt: "Comp Bio Awards" },
+  { src: "/assets/img/gallery/stanford.jpeg", alt: "Lab visit" },
 ];

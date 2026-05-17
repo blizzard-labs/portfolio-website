@@ -8,7 +8,7 @@ const Readings = () => {
         <div className="readings-section">
           <div className="readings-header">
             <span className="readings-ornament">❧</span>
-            <h3 className="readings-title">Current Reading List</h3>
+            <h3 className="readings-title">My Favorite Reads</h3>
             <span className="readings-ornament">❧</span>
           </div>
           <div className="readings-list">

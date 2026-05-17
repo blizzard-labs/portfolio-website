@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import About from './components/About/About';
 import Research from './components/Research/Research';
-import Experience from './components/Experience/Experience';
 import Readings from './components/Readings/Readings';
 import Gallery from './components/Gallery/Gallery';
 import Footer from './components/Footer/Footer';
@@ -23,7 +22,6 @@ function App() {
           <main>
             <About />
             <Research />
-            <Experience />
             <Gallery />
             <Readings />
           </main>
