@@ -92,7 +92,7 @@ const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navItems.length * 0.1, duration: 0.4 }}
               >
-                Blog
+                Weblog
               </motion.a>
             </div>
 
