@@ -83,6 +83,18 @@ const Navigation = () => {
                   )}
                 </motion.button>
               ))}
+              <motion.a
+                href="https://blog.krishna-bhatt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-item"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1, duration: 0.4 }}
+                whileHover={{ y: -2 }}
+              >
+                <span className="nav-item-text">Blog</span>
+              </motion.a>
             </div>
 
             <a
@@ -138,6 +150,18 @@ const Navigation = () => {
                   <span className="mobile-nav-text">{item.label}</span>
                 </motion.button>
               ))}
+              <motion.a
+                href="https://blog.krishna-bhatt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mobile-nav-item"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.05 }}
+              >
+                <span className="mobile-nav-number">0{navItems.length + 1}</span>
+                <span className="mobile-nav-text">Blog</span>
+              </motion.a>
             </div>
           </motion.div>
         )}
