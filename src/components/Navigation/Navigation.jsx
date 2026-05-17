@@ -87,13 +87,12 @@ const Navigation = () => {
                 href="https://blog.krishna-bhatt.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="nav-item"
+                className="nav-resume-btn"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navItems.length * 0.1, duration: 0.4 }}
-                whileHover={{ y: -2 }}
               >
-                <span className="nav-item-text">Blog</span>
+                Blog
               </motion.a>
             </div>
 
