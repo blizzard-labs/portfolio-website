@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { galleryImages } from '../../data/content';
 import './Gallery.css';
 
@@ -21,6 +21,31 @@ const Gallery = () => {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
+  const prevImage = () => {
+    setSelectedImage((prev) => {
+      const newIndex = (prev.index - 1 + galleryImages.length) % galleryImages.length;
+      return { ...galleryImages[newIndex], index: newIndex };
+    });
+  };
+
+  const nextImage = () => {
+    setSelectedImage((prev) => {
+      const newIndex = (prev.index + 1) % galleryImages.length;
+      return { ...galleryImages[newIndex], index: newIndex };
+    });
+  };
+
+  useEffect(() => {
+    if (!selectedImage) return;
+    const handleKey = (e) => {
+      if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [selectedImage]);
 
   // Get current slide images
   const getCurrentSlideImages = () => {
@@ -110,11 +135,29 @@ const Gallery = () => {
           className="lightbox"
           onClick={() => setSelectedImage(null)}
         >
+          <button
+            className="lightbox-nav lightbox-nav-prev"
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            aria-label="Previous image"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <button
+            className="lightbox-nav lightbox-nav-next"
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            aria-label="Next image"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
           <div
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               className="lightbox-close"
               onClick={() => setSelectedImage(null)}
             >
@@ -122,13 +165,18 @@ const Gallery = () => {
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
             </button>
-            <img 
-              src={selectedImage.src} 
+            <img
+              src={selectedImage.src}
               alt={selectedImage.alt}
             />
             <div className="lightbox-caption">
               <span className="caption-line"></span>
-              <span className="caption-text">Fig. {selectedImage.index + 1}</span>
+              <span className="caption-text">
+                <span className="caption-fig">Fig. {selectedImage.index + 1}</span>
+                {selectedImage.alt && (
+                  <span className="caption-alt">{selectedImage.alt}</span>
+                )}
+              </span>
             </div>
           </div>
         </div>
