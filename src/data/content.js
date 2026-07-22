@@ -277,7 +277,7 @@ export const readings = [
 ];
 
 export const galleryImages = [
-  { src: "/assets/img/gallery/smka.jpeg", alt: "2nd Place at Formula KFX (CCKRA)" },
+  { src: "/assets/img/gallery/smka.jpeg", alt: "P2 at Formula KFX (CCKRA)" },
   { src: "/assets/img/gallery/alaska.jpg", alt: "Alaska Research Expedition on the Endeavor" },
   { src: "/assets/img/gallery/elementaryclass.jpg", alt: "Last day of school special talk at my sister's class!" },
   { src: "/assets/img/gallery/isefawards_new.jpeg", alt: "Comp Bio Awards" },
@@ -295,6 +295,7 @@ export const galleryImages = [
   { src: "/assets/img/gallery/DCsummit.jpg", alt: "Diamond Challenge Summit" },
   { src: "/assets/img/gallery/csef.jpg", alt: "CSEF 2025" },
   { src: "/assets/img/gallery/synopsysAwards.jpg", alt: "Grand award alternate at Silicon Valley Science Fair" },
+  { src: "/assets/img/gallery/sft.jpeg", alt: "BISV Middle Science Fair Team!" },
   { src: "/assets/img/gallery/firstpodium.jpg", alt: "First Podium" },
   { src: "/assets/img/gallery/firstcomplab.jpeg", alt: "First Day at the Holmes Lab" },
   { src: "/assets/img/gallery/firstultraprecisetract.png", alt: "Ultra precise tractogram" },
@@ -305,6 +306,5 @@ export const galleryImages = [
   { src: "/assets/img/gallery/nationals.jpg", alt: "Thermo Fisher JIC Booth" },
   { src: "/assets/img/gallery/challenge.jpg", alt: "Engineering Challenge" },
   { src: "/assets/img/gallery/construct.jpg", alt: "Working on the Balancerator" },
-  { src: "/assets/img/gallery/archery.jpg", alt: "Archery in Maranchery" },
   { src: "/assets/img/gallery/elementary_new.jpg", alt: "First science fair" },
 ];
