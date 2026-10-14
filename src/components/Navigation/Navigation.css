@@ -49,6 +49,7 @@
 
 .nav-items {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -110,13 +111,15 @@
   border: 1px solid var(--color-ink);
   padding: 0.75rem 1.5rem;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: 2rem;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.mobile-resume-btn:hover {
-  background: var(--color-ink);
-  color: var(--color-ivory);
+@media (hover: hover) {
+  .mobile-resume-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-ivory);
+  }
 }
 
 /* Mobile Menu Toggle */
@@ -161,6 +164,9 @@
   background: var(--color-ivory);
   z-index: 999;
   padding: 6rem 2rem 2rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: -1px 0 0 var(--color-pearl);
 }
 
 .mobile-menu-content {
@@ -179,11 +185,15 @@
   border-bottom: 1px solid var(--color-pearl);
   cursor: pointer;
   text-align: left;
+  font: inherit;
   transition: all 0.3s ease;
 }
 
-.mobile-nav-item:hover {
-  padding-left: 1rem;
+/* Touch devices keep :hover after a tap, which would leave the item indented */
+@media (hover: hover) {
+  .mobile-nav-item:hover {
+    padding-left: 1rem;
+  }
 }
 
 .mobile-nav-number {

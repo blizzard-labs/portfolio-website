@@ -21,3 +21,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw/original source assets (unwatermarked, may contain photo metadata) — never publish
+assets-src/

@@ -4,22 +4,42 @@ import './Gallery.css';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const carouselRef = useRef(null);
+  const trackRef = useRef(null);
+  const loopCopies = 3;
 
-  const imagesPerSlide = 9; // 3 columns x 3 rows
-  const totalSlides = Math.ceil(galleryImages.length / imagesPerSlide);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  // Width of one full set of images (track holds `loopCopies` identical sets)
+  const getSetWidth = () => {
+    const track = trackRef.current;
+    return track ? track.scrollWidth / loopCopies : 0;
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  // Start in the middle set so there is room to scroll both directions
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const center = () => { track.scrollLeft = getSetWidth(); };
+    center();
+    const observer = new ResizeObserver(center);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, []);
+
+  // Seamless wrap: when leaving the middle set, jump by one set width
+  const handleScroll = () => {
+    const track = trackRef.current;
+    const setWidth = getSetWidth();
+    if (!track || !setWidth) return;
+    if (track.scrollLeft < setWidth * 0.5) {
+      track.scrollLeft += setWidth;
+    } else if (track.scrollLeft > setWidth * 1.5) {
+      track.scrollLeft -= setWidth;
+    }
   };
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const scrollByItems = (direction) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: direction * track.clientWidth * 0.6, behavior: 'smooth' });
   };
 
   const prevImage = () => {
@@ -43,90 +63,84 @@ const Gallery = () => {
       else if (e.key === 'ArrowRight') nextImage();
       else if (e.key === 'Escape') setSelectedImage(null);
     };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', handleKey);
+    };
   }, [selectedImage]);
 
-  // Get current slide images
-  const getCurrentSlideImages = () => {
-    const start = currentSlide * imagesPerSlide;
-    return galleryImages.slice(start, start + imagesPerSlide);
+  // Horizontal swipe in the lightbox steps through images
+  const touchStartX = useRef(null);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(dx) < 50) return;
+    if (dx > 0) prevImage();
+    else nextImage();
   };
 
   return (
     <section id="gallery" className="gallery section">
       <div className="container">
-        <div>
-          <div className="section-header">
-            <span className="section-number">05</span>
-            <h2 className="section-title">Photo Diary</h2>
-            <div className="section-line"></div>
-          </div>
-
-          
-
-          <div className="gallery-carousel-wrapper">
-            <button 
-              className="carousel-btn carousel-btn-prev" 
-              onClick={prevSlide}
-              aria-label="Previous slide"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-
-            <div className="gallery-carousel" ref={carouselRef}>
-              <div 
-                key={currentSlide}
-                className="gallery-grid"
-              >
-                {getCurrentSlideImages().map((image, index) => {
-                  const globalIndex = currentSlide * imagesPerSlide + index;
-                  return (
-                    <div
-                      key={globalIndex}
-                      className="gallery-item"
-                      onClick={() => setSelectedImage({ ...image, index: globalIndex })}
-                    >
-                      <img 
-                        src={image.src} 
-                        alt={image.alt}
-                        loading="lazy"
-                      />
-                      <div className="gallery-item-overlay">
-                        <span className="gallery-item-number">
-                          Fig. {globalIndex + 1}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <button 
-              className="carousel-btn carousel-btn-next" 
-              onClick={nextSlide}
-              aria-label="Next slide"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <div className="carousel-dots">
-            {Array.from({ length: totalSlides }).map((_, index) => (
-              <button
-                key={index}
-                className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+        <div className="section-header">
+          <h2 className="section-title">Photo Diary</h2>
+          <div className="section-line"></div>
         </div>
+      </div>
+
+      <div className="gallery-strip">
+        <button
+          className="carousel-btn carousel-btn-prev"
+          onClick={() => scrollByItems(-1)}
+          aria-label="Scroll left"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        <div className="gallery-track" ref={trackRef} onScroll={handleScroll}>
+          {Array.from({ length: loopCopies }).flatMap((_, copy) =>
+            galleryImages.map((image, index) => (
+              <div
+                key={`${copy}-${index}`}
+                className="gallery-item"
+                aria-hidden={copy !== 1}
+                onClick={() => setSelectedImage({ ...image, index })}
+              >
+                <img
+                  src={image.src}
+                  alt={copy === 1 ? image.alt : ''}
+                  style={image.position && { objectPosition: image.position }}
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className="gallery-item-overlay">
+                  <span className="diary-item-caption">
+                    {image.alt}
+                  </span>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        <button
+          className="carousel-btn carousel-btn-next"
+          onClick={() => scrollByItems(1)}
+          aria-label="Scroll right"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
 
       {/* Lightbox */}
@@ -134,6 +148,8 @@ const Gallery = () => {
         <div
           className="lightbox"
           onClick={() => setSelectedImage(null)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button
             className="lightbox-nav lightbox-nav-prev"

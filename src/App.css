@@ -12,18 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Loading state */
-.loading {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-elegant);
-  font-size: 1.2rem;
-  color: var(--color-graphite);
-  letter-spacing: 0.1em;
-}
-
 /* Page transitions */
 .page-transition-enter {
   opacity: 0;

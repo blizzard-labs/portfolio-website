@@ -448,12 +448,56 @@
     display: none;
   }
   
-  .project-modal {
-    padding: 2rem;
+  .project-modal-overlay {
+    padding: 0.75rem;
   }
-  
+
+  .project-modal {
+    padding: 3.5rem 1.5rem 2rem;
+    max-height: calc(100dvh - 1.5rem);
+  }
+
+  .modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
   .modal-title {
     font-size: 1.75rem;
+  }
+
+  .modal-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .modal-motivation {
+    padding: 1.25rem 1rem;
+  }
+
+  .modal-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .resource-link {
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+
+  .resource-link svg {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Touch devices keep :hover after a tap; only animate on real hover */
+@media (hover: none) {
+  .project-card:hover {
+    background: none;
+  }
+
+  .resource-link:hover {
+    padding-left: 0;
   }
 }
 
@@ -470,7 +514,7 @@
   cursor: pointer;
 }
 
-.lightbox-close {
+.lightbox-overlay .lightbox-close {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -486,7 +530,7 @@
   transition: all 0.3s ease;
 }
 
-.lightbox-close:hover {
+.lightbox-overlay .lightbox-close:hover {
   background: var(--color-ivory);
   color: var(--color-ink);
   border-color: var(--color-ivory);
@@ -498,4 +542,21 @@
   object-fit: contain;
   border: 1px solid var(--color-charcoal);
   cursor: default;
+}
+
+@media (max-width: 768px) {
+  .lightbox-overlay {
+    padding: 1rem;
+  }
+
+  .lightbox-overlay .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-image {
+    max-height: 75dvh;
+  }
 }

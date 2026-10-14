@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Notebook from '../Notebook/Notebook';
 import './Navigation.css';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [notebookOpen, setNotebookOpen] = useState(false);
 
   const navItems = [
     { id: 'about', label: 'About' },
@@ -34,12 +36,31 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock page scroll behind the open mobile menu; close it on Escape or when
+  // the viewport grows past the mobile breakpoint
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const mql = window.matchMedia('(max-width: 900px)');
+    const close = () => setMobileMenuOpen(false);
+    const onKey = (e) => { if (e.key === 'Escape') close(); };
+    const onChange = (e) => { if (!e.matches) close(); };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    mql.addEventListener('change', onChange);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+      mql.removeEventListener('change', onChange);
+    };
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setMobileMenuOpen(false);
+    // Wait a frame so the menu's scroll lock is released before scrolling
+    requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    });
   };
 
   return (
@@ -97,12 +118,15 @@ const Navigation = () => {
             </div>
 
             <a
-              href="/assets/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#notebook"
+              role="button"
               className="nav-resume-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                setNotebookOpen(true);
+              }}
             >
-              Resume
+              Notebook
             </a>
           </div>
 
@@ -128,14 +152,6 @@ const Navigation = () => {
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
             <div className="mobile-menu-content">
-              <a
-                href="/assets/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mobile-resume-btn"
-              >
-                Resume
-              </a>
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.id}
@@ -159,12 +175,26 @@ const Navigation = () => {
                 transition={{ delay: navItems.length * 0.05 }}
               >
                 <span className="mobile-nav-number">0{navItems.length + 1}</span>
-                <span className="mobile-nav-text">Blog</span>
+                <span className="mobile-nav-text">Weblog</span>
               </motion.a>
+              <a
+                href="#notebook"
+                role="button"
+                className="mobile-resume-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  setNotebookOpen(true);
+                }}
+              >
+                Notebook
+              </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <Notebook isOpen={notebookOpen} onClose={() => setNotebookOpen(false)} />
     </>
   );
 };

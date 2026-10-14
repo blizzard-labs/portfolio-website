@@ -56,17 +56,16 @@ const About = () => {
 
           <div className="about-content">
             <div className="section-header">
-              <span className="section-number">01</span>
               <h2 className="section-title">Krishna Bhatt</h2>
               <div className="section-line"></div>
             </div>
 
             <p className="about-bio">
-              I'm currently a high school junior. My dream is that all people will be enabled with the independence to fully live their lives.
+              I'm currently a high school senior. My dream is that everybody will have the agency to fully live their lives.
             </p>
 
             <div className="about-interests">
-              <h3 className="interests-title">My Interests and Cool Skills</h3>
+              <h3 className="interests-title">Questions at Every Scale</h3>
               <div className="interests-grid">
                 {personalInfo.interests.map((interest, index) => (
                   <div 

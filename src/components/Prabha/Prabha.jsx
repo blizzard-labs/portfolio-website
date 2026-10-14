@@ -11,7 +11,6 @@ const Prabha = () => {
       <div className="container">
         <div>
           <div className="section-header">
-            <span className="section-number">03</span>
             <h2 className="section-title">Prabha Initiative</h2>
             <div className="section-line"></div>
           </div>

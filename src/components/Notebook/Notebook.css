@@ -1,0 +1,227 @@
+/* Notebook Viewer */
+.notebook-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(26, 26, 26, 0.82);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 2vw;
+}
+
+.notebook-modal {
+  width: 90vw;
+  height: 90vh;
+  background: #000;
+  font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  border: 1px solid var(--color-charcoal);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.notebook-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--color-charcoal);
+}
+
+.notebook-title {
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e3e3e3;
+}
+
+.notebook-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.notebook-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-ivory);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.notebook-stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.notebook-spread-wrap {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notebook-spread {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.notebook-page {
+  max-height: 100%;
+  min-width: 0;
+  object-fit: contain;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  background: var(--color-ivory);
+  user-select: none;
+}
+
+.notebook-spread.per-2 .notebook-page {
+  max-width: calc(50% - 0.25rem);
+}
+
+.notebook-spread.per-1 .notebook-page {
+  max-width: 100%;
+}
+
+.notebook-arrow {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 5rem;
+  border: none;
+  background: transparent;
+  color: #8e918f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.notebook-arrow svg {
+  width: 1.1rem;
+  height: 4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.notebook-arrow:hover:not(:disabled) {
+  color: #e3e3e3;
+}
+
+.notebook-arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/* Thumbnail strip */
+.notebook-strip {
+  flex-shrink: 0;
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.75rem 1.5rem 0.9rem;
+  border-top: 1px solid var(--color-charcoal);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-graphite) transparent;
+}
+
+.notebook-thumb {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.notebook-thumb img {
+  display: block;
+  height: 84px;
+  width: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  padding: 3px;
+  border: 2px solid #3c3c3c;
+  border-radius: 12px;
+  background: #1e1e1e;
+  box-sizing: content-box;
+  transition: border-color var(--transition-fast);
+}
+
+.notebook-thumb:hover img {
+  border-color: #5f6368;
+}
+
+.notebook-thumb.active img {
+  border: 3px solid #a8c7fa;
+  padding: 2px;
+}
+
+.notebook-thumb span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #c4c7c5;
+}
+
+@media (max-width: 768px) {
+  .notebook-overlay {
+    padding: 0;
+  }
+
+  .notebook-modal {
+    width: 100vw;
+    height: 100dvh;
+    border: none;
+  }
+
+  .notebook-header {
+    padding: 0.6rem 1rem;
+  }
+
+  .notebook-title {
+    font-size: 0.95rem;
+  }
+
+  .notebook-stage {
+    padding: var(--space-sm) 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .notebook-arrow {
+    width: 1.75rem;
+  }
+
+  .notebook-arrow svg {
+    height: 3rem;
+  }
+
+  .notebook-thumb img {
+    height: 64px;
+  }
+}

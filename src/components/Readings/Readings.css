@@ -102,15 +102,18 @@
   color: var(--color-graphite);
 }
 
-.reading-item:hover .reading-arrow {
-  opacity: 1;
-  transform: translateX(0);
-}
+/* Touch devices keep :hover after a tap, which would leave the row shifted */
+@media (hover: hover) {
+  .reading-item:hover .reading-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-.reading-item:hover {
-  background: linear-gradient(to right, var(--color-ivory), transparent);
-  padding-left: 1rem;
-  margin-left: -1rem;
+  .reading-item:hover {
+    background: linear-gradient(to right, var(--color-ivory), transparent);
+    padding-left: 1rem;
+    margin-left: -1rem;
+  }
 }
 
 @media (max-width: 768px) {

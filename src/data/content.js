@@ -3,16 +3,16 @@
 export const personalInfo = {
   name: "Krishna Bhatt",
   tagline: "Neuroscience · Computation · Engineering",
-  bio: "In my natural habitat, you'll probably find me working on a puzzle that's bugging me, from deciphering cortical dynamics from EEG data to constructing balancing devices for Parkinson's patients.",
-  mission: "My dream is that all people will be enabled with the independence to fully live their lives.",
-  headshot: "/assets/img/headshot.png",
+  bio: "In my natural habitat, you'll probably find me working on a puzzle that's bugging me, from deciphering cortical dynamics from EEG data to constructing balancing devices for Parkinson's patients!",
+  mission: "My dream is that everybody will have the agency to fully live their lives.",
+  headshot: "/assets/img/headshot.jpg",
   email: "contact@krishnabhatt.com",
   github: "https://github.com/blizzard-labs",
   interests: [
-    { field: "Neuroscience", focus: "Cortical Circuit Dynamics" },
-    { field: "Computer Science", focus: "SNNs & Unsupervised Learning" },
-    { field: "Dynamical Systems", focus: "Signal Processing" },
-    { field: "Kart Racing", focus: "Tractographic Reconstruction" }
+    { field: "Neurons", focus: "Excitability & Bursting" },
+    { field: "Circuits", focus: "Chaos, Attractors & Synchrony" },
+    { field: "Brain Structure", focus: "Diffusion MRI & Tractography" },
+    { field: "Interfaces", focus: "Decoding EEG for Prosthetic Control" }
   ]
 };
 
@@ -37,9 +37,9 @@ export const projects = [
   {
     id: "reconbench",
     year: 2025,
-    title: "ReconBench",
+    title: "Evolmoves Benchmark",
     subtitle: "A Phylogenetic MCMC Benchmark",
-    status: "PUBLISHED",
+    status: "IN PROGRESS",
     description: "Developed at the Holmes Lab, UC Berkeley. A comprehensive evaluation framework for Historian, enabling rigorous testing across a wide range of phylogenetic conditions. Using INDELible to simulate evolutionary histories, we generated biologically-derived datasets spanning the four major SCOP protein types.",
     images: [
       { src: "/assets/img/projects/ReconBench/corr.png", alt: "Correlation analysis" },
@@ -277,6 +277,9 @@ export const readings = [
 ];
 
 export const galleryImages = [
+  { src: "/assets/img/gallery/cityhall-purple.jpg", alt: "We lit city hall purple for Alzheimer's!", position: "center 80%" },
+  { src: "/assets/img/gallery/brainbrew-filming.jpg", alt: "Filming day for the Brain Brew Ride" },
+  { src: "/assets/img/gallery/alamo-square-empathy-cafe.jpg", alt: "Alamo Square with the Empathy Cafe" },
   { src: "/assets/img/gallery/smka.jpeg", alt: "P2 at Formula KFX (CCKRA)" },
   { src: "/assets/img/gallery/alaska.jpg", alt: "Alaska Research Expedition on the Endeavor" },
   { src: "/assets/img/gallery/elementaryclass.jpg", alt: "Last day of school special talk at my sister's class!" },

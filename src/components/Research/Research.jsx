@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { projects } from '../../data/content';
 import './Research.css';
@@ -6,6 +6,23 @@ import './Research.css';
 const Research = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [lightboxImage, setLightboxImage] = useState(null);
+
+  // Lock page scroll while the modal is open; Escape closes the topmost layer
+  useEffect(() => {
+    if (!selectedProject) return;
+    const onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (lightboxImage) setLightboxImage(null);
+      else setSelectedProject(null);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [selectedProject, lightboxImage]);
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -24,7 +41,6 @@ const Research = () => {
       <div className="container">
         <div>
           <div className="section-header">
-            <span className="section-number">02</span>
             <h2 className="section-title">My Research Projects</h2>
             <div className="section-line"></div>
           </div>

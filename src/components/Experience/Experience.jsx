@@ -7,7 +7,6 @@ const Experience = () => {
       <div className="container">
         <div>
           <div className="section-header">
-            <span className="section-number">04</span>
             <h2 className="section-title">Experience & Honors</h2>
             <div className="section-line"></div>
           </div>

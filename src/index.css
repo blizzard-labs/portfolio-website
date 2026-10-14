@@ -59,12 +59,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Selection */
-::selection {
-  background-color: var(--color-ink);
-  color: var(--color-ivory);
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -267,13 +261,15 @@ img {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--space-xl);
+  }
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 14px;
-  }
-  
-  .section {
-    padding: var(--space-xl) 0;
   }
   
   .container {

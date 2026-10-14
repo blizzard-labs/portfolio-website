@@ -40,7 +40,6 @@ const Contact = () => {
           <div className="contact-content">
             <div className="contact-header">
               <div className="section-header">
-                <span className="section-number">06</span>
                 <h2 className="section-title">Get in Touch</h2>
                 <div className="section-line"></div>
               </div>
