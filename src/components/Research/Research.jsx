@@ -76,15 +76,6 @@ const Research = () => {
                     </span>
                   </div>
                   <p className="project-subtitle">{project.subtitle}</p>
-                  
-                  <div className="project-tags">
-                    {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                      <span key={tagIndex} className="project-tag">{tag}</span>
-                    ))}
-                    {project.tags.length > 3 && (
-                      <span className="project-tag more">+{project.tags.length - 3}</span>
-                    )}
-                  </div>
                 </div>
 
                 <div className="project-arrow">
@@ -143,12 +134,6 @@ const Research = () => {
                     </ul>
                   </div>
                 )}
-              </div>
-
-              <div className="modal-tags">
-                {selectedProject.tags.map((tag, index) => (
-                  <span key={index} className="modal-tag">{tag}</span>
-                ))}
               </div>
 
               {selectedProject.images && selectedProject.images.length > 0 && (

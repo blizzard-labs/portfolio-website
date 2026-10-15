@@ -2,32 +2,41 @@ import { useState, useRef, useEffect } from 'react';
 import { galleryImages } from '../../data/content';
 import './Gallery.css';
 
-const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const trackRef = useRef(null);
-  const loopCopies = 3;
+// Fisher-Yates shuffle, run once per page load so each visit sees a new order
+const images = [...galleryImages];
+for (let i = images.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [images[i], images[j]] = [images[j], images[i]];
+}
 
-  // Width of one full set of images (track holds `loopCopies` identical sets)
-  const getSetWidth = () => {
-    const track = trackRef.current;
-    return track ? track.scrollWidth / loopCopies : 0;
-  };
+// Alternate photos between the two rows; `index` stays the position in `images`
+const rows = [0, 1].map((r) =>
+  images.map((image, index) => ({ image, index })).filter(({ index }) => index % 2 === r)
+);
 
+const LOOP_COPIES = 3;
+const AUTO_SPEED = 20; // px per second
+
+// One infinitely looping row. `direction` sets which way it drifts on its own.
+// Width of one full set of images (track holds LOOP_COPIES identical sets)
+const getSetWidth = (track) => (track ? track.scrollWidth / LOOP_COPIES : 0);
+
+const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
   // Start in the middle set so there is room to scroll both directions
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const center = () => { track.scrollLeft = getSetWidth(); };
+    const center = () => { track.scrollLeft = getSetWidth(track); };
     center();
     const observer = new ResizeObserver(center);
     observer.observe(track);
     return () => observer.disconnect();
-  }, []);
+  }, [trackRef]);
 
   // Seamless wrap: when leaving the middle set, jump by one set width
   const handleScroll = () => {
     const track = trackRef.current;
-    const setWidth = getSetWidth();
+    const setWidth = getSetWidth(track);
     if (!track || !setWidth) return;
     if (track.scrollLeft < setWidth * 0.5) {
       track.scrollLeft += setWidth;
@@ -36,23 +45,110 @@ const Gallery = () => {
     }
   };
 
-  const scrollByItems = (direction) => {
+  // Slow auto-scroll; `pauseRef.current()` says whether the strip is paused
+  useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    track.scrollBy({ left: direction * track.clientWidth * 0.6, behavior: 'smooth' });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let visible = false;
+    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; });
+    io.observe(track);
+
+    // scrollLeft may be rounded to whole pixels, so track position as a float
+    let pos = track.scrollLeft;
+    let last = performance.now();
+    let frame;
+    const tick = (now) => {
+      const dt = Math.min(now - last, 100) / 1000;
+      last = now;
+      const active = visible && !document.hidden && !pauseRef.current(now);
+      if (Math.abs(track.scrollLeft - pos) > 2) pos = track.scrollLeft; // user scrolled
+      if (active) {
+        pos += direction * AUTO_SPEED * dt;
+        const setWidth = getSetWidth(track);
+        if (setWidth && pos > setWidth * 1.5) pos -= setWidth;
+        if (setWidth && pos < setWidth * 0.5) pos += setWidth;
+        track.scrollLeft = pos;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(frame);
+      io.disconnect();
+    };
+  }, [direction, trackRef, pauseRef]);
+
+  return (
+    <div className="gallery-track" ref={trackRef} onScroll={handleScroll}>
+      {Array.from({ length: LOOP_COPIES }).flatMap((_, copy) =>
+        items.map(({ image, index }) => (
+          <div
+            key={`${copy}-${index}`}
+            className="gallery-item"
+            aria-hidden={copy !== 1}
+            onClick={() => onSelect({ ...image, index })}
+          >
+            <img
+              src={image.src}
+              alt={copy === 1 ? image.alt : ''}
+              style={image.position && { objectPosition: image.position }}
+              loading="lazy"
+              draggable="false"
+            />
+            <div className="gallery-item-overlay">
+              <span className="diary-item-caption">
+                {image.alt}
+              </span>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
+};
+
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const topRef = useRef(null);
+  const bottomRef = useRef(null);
+
+  // Auto-scroll pauses while hovered, touched, or while the lightbox is open;
+  // resumes shortly after manual interaction.
+  const hoveringRef = useRef(false);
+  const pausedUntilRef = useRef(0);
+  const lightboxOpenRef = useRef(false);
+  useEffect(() => {
+    lightboxOpenRef.current = selectedImage !== null;
+  }, [selectedImage]);
+
+  const pauseRef = useRef((now) =>
+    hoveringRef.current || lightboxOpenRef.current || now < pausedUntilRef.current
+  );
+
+  const pauseFor = (ms) => {
+    pausedUntilRef.current = Math.max(pausedUntilRef.current, performance.now() + ms);
+  };
+
+  const scrollByItems = (direction) => {
+    pauseFor(3000);
+    [topRef, bottomRef].forEach(({ current: track }) => {
+      track?.scrollBy({ left: direction * track.clientWidth * 0.6, behavior: 'smooth' });
+    });
   };
 
   const prevImage = () => {
     setSelectedImage((prev) => {
-      const newIndex = (prev.index - 1 + galleryImages.length) % galleryImages.length;
-      return { ...galleryImages[newIndex], index: newIndex };
+      const newIndex = (prev.index - 1 + images.length) % images.length;
+      return { ...images[newIndex], index: newIndex };
     });
   };
 
   const nextImage = () => {
     setSelectedImage((prev) => {
-      const newIndex = (prev.index + 1) % galleryImages.length;
-      return { ...galleryImages[newIndex], index: newIndex };
+      const newIndex = (prev.index + 1) % images.length;
+      return { ...images[newIndex], index: newIndex };
     });
   };
 
@@ -95,7 +191,14 @@ const Gallery = () => {
         </div>
       </div>
 
-      <div className="gallery-strip">
+      <div
+        className="gallery-strip"
+        onPointerEnter={(e) => { if (e.pointerType === 'mouse') hoveringRef.current = true; }}
+        onPointerLeave={(e) => { if (e.pointerType === 'mouse') hoveringRef.current = false; }}
+        onTouchStart={() => pauseFor(60000)}
+        onTouchEnd={() => { pausedUntilRef.current = 0; pauseFor(3000); }}
+        onWheel={() => pauseFor(3000)}
+      >
         <button
           className="carousel-btn carousel-btn-prev"
           onClick={() => scrollByItems(-1)}
@@ -106,30 +209,9 @@ const Gallery = () => {
           </svg>
         </button>
 
-        <div className="gallery-track" ref={trackRef} onScroll={handleScroll}>
-          {Array.from({ length: loopCopies }).flatMap((_, copy) =>
-            galleryImages.map((image, index) => (
-              <div
-                key={`${copy}-${index}`}
-                className="gallery-item"
-                aria-hidden={copy !== 1}
-                onClick={() => setSelectedImage({ ...image, index })}
-              >
-                <img
-                  src={image.src}
-                  alt={copy === 1 ? image.alt : ''}
-                  style={image.position && { objectPosition: image.position }}
-                  loading="lazy"
-                  draggable="false"
-                />
-                <div className="gallery-item-overlay">
-                  <span className="diary-item-caption">
-                    {image.alt}
-                  </span>
-                </div>
-              </div>
-            ))
-          )}
+        <div className="gallery-rows">
+          <GalleryRow items={rows[0]} direction={1} trackRef={topRef} pauseRef={pauseRef} onSelect={setSelectedImage} />
+          <GalleryRow items={rows[1]} direction={-1} trackRef={bottomRef} pauseRef={pauseRef} onSelect={setSelectedImage} />
         </div>
 
         <button

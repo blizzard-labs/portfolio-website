@@ -30,10 +30,7 @@
 }
 
 .gallery-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, auto);
-  row-gap: 0;
+  display: flex;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
@@ -77,6 +74,7 @@
 
 .gallery-item {
   position: relative;
+  flex-shrink: 0;
   --tile-height: clamp(140px, 24vh, 260px);
   height: var(--tile-height);
   width: calc(var(--tile-height) * 4 / 3);
@@ -85,11 +83,6 @@
   cursor: pointer;
   border: 1px solid var(--color-ash);
   background: var(--color-ivory);
-}
-
-/* Brick offset: shift bottom row (even items in column flow) by half a tile */
-.gallery-item:nth-child(even) {
-  transform: translateX(-50%);
 }
 
 .gallery-item img {

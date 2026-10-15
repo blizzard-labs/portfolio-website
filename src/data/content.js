@@ -31,8 +31,7 @@ export const projects = [
     resources: [
       { label: "Github Repo", url: "https://github.com/blizzard-labs/thalis-eeg-control" },
       { label: "Project Proposal", url: "https://docs.google.com/document/d/135vfImX9XZffEkq6f2IK6FvMbcDsl175/preview" }
-    ],
-    tags: ["EEG", "Prosthetics", "Spiking Neural Networks", "Dynamical Systems"]
+    ]
   },
   {
     id: "reconbench",
@@ -51,8 +50,7 @@ export const projects = [
       { label: "Github Repo", url: "https://github.com/blizzard-labs/phylo-mcmc-evaluation" },
       { label: "Project Report", url: "https://drive.google.com/file/d/1ch-W26xjg0PbhFo8QuBGvkchhoeWDRs0/preview" },
       { label: "Modified Historian", url: "https://github.com/blizzard-labs/historian-mod" }
-    ],
-    tags: ["Phylogenetics", "MCMC", "Computational Biology", "Benchmarking"]
+    ]
   },
   {
     id: "homebuilt",
@@ -70,8 +68,7 @@ export const projects = [
       { label: "Launch Writeup", url: "https://drive.google.com/file/d/1K063vRwWWBMYVAiNsq_a-sU5c8eeiPUm/preview" },
       { label: "Video Pitch", url: "https://youtu.be/yTSA3R-rAMo" },
       { label: "Customer Testimonials", url: "https://drive.google.com/file/d/1EJ36i9EDGFnBcR54bqFN0lnPjuB8OVlu/preview" }
-    ],
-    tags: ["Entrepreneurship", "AI", "Mobile App", "Local Business"]
+    ]
   },
   {
     id: "mesonet",
@@ -90,8 +87,7 @@ export const projects = [
       { label: "Github Repo", url: "https://github.com/blizzard-labs/NMCtests" },
       { label: "Video Presentation", url: "https://youtu.be/4yPmUsaXKY0" },
       { label: "Poster", url: "https://drive.google.com/file/d/1kDdw0U7FfciGSA6t0wHDR0jmJ54sKUvg/preview" }
-    ],
-    tags: ["Spiking Neural Networks", "Dynamical Systems", "Edge of Chaos", "Machine Learning"]
+    ]
   },
   {
     id: "tractx",
@@ -108,8 +104,7 @@ export const projects = [
     resources: [
       { label: "Github Repo", url: "https://github.com/blizzard-labs/tractx-no-maps" },
       { label: "Poster Presentation", url: "https://drive.google.com/file/d/1msfSQkJJBQ3r8podPtQThE3YrCb9IFjb/preview" }
-    ],
-    tags: ["Tractography", "Neuroimaging", "dMRI", "Signal Processing"]
+    ]
   },
   {
     id: "balancerator",
@@ -128,8 +123,7 @@ export const projects = [
       { label: "Video Presentation", url: "https://youtu.be/ve8pqWtbBm0" },
       { label: "Project Poster", url: "https://drive.google.com/file/d/162AHb5D_bjp-7TEQn_o3OxmyVhgVhEBL/preview" },
       { label: "Github Repo", url: "https://github.com/blizzard-labs/balancerator" }
-    ],
-    tags: ["Wearables", "GRU", "Kalman Filter", "Healthcare", "Arduino"]
+    ]
   },
   {
     id: "cookie-dispenser",
@@ -145,8 +139,7 @@ export const projects = [
     resources: [
       { label: "Project Poster", url: "https://drive.google.com/file/d/1H4tsudnYg4-o26NanthVHXAIR48T0lyM/preview" },
       { label: "Project Video", url: "https://youtu.be/TzsfR5Whx-k" }
-    ],
-    tags: ["Arduino", "Bluetooth", "Health", "Mobile App"]
+    ]
   }
 ];
 
@@ -278,15 +271,31 @@ export const readings = [
 
 export const galleryImages = [
   { src: "/assets/img/gallery/cityhall-purple.jpg", alt: "We lit city hall purple for Alzheimer's!", position: "center 80%" },
-  { src: "/assets/img/gallery/brainbrew-filming.jpg", alt: "Filming day for the Brain Brew Ride" },
+  { src: "/assets/img/gallery/brainbrew-filming.jpg", alt: "Filming day for the Brain Brew Ride [Oct 2026]" },
   { src: "/assets/img/gallery/alamo-square-empathy-cafe.jpg", alt: "Alamo Square with the Empathy Cafe" },
-  { src: "/assets/img/gallery/smka.jpeg", alt: "P2 at Formula KFX (CCKRA)" },
-  { src: "/assets/img/gallery/alaska.jpg", alt: "Alaska Research Expedition on the Endeavor" },
+  { src: "/assets/img/gallery/film-set-interview.jpg", alt: "TEDxUnityPark Interview [Sep 2026]" },
+  { src: "/assets/img/gallery/sanjose-recognition-2026.jpg", alt: "Recognized by the City of San Jose [Jun 2026]" },
+  { src: "/assets/img/gallery/alaska-skiff.jpg", alt: "Skiff ride through the fjords in Alaska [May 2026]" },
+  { src: "/assets/img/gallery/sciencefair-ribbons-2026.jpg", alt: "Science fair friends! [Mar 2026]" },
+  { src: "/assets/img/gallery/kayaking.jpg", alt: "Kayaking on the bay [Oct 2025]" },
+  { src: "/assets/img/gallery/mesonet-poster.jpg", alt: "Presenting MesoNet [Mar 2025]" },
+  { src: "/assets/img/gallery/classroom-under-desk.jpg", alt: "Science Fair Students, engineering under a desk [Sep 2024]" },
+  { src: "/assets/img/gallery/paper-airplanes.jpg", alt: "Science Fair students test flight! [Sep 2024]" },
+  { src: "/assets/img/gallery/pc-build.jpg", alt: "New GPU rig for training models [Jun 2024]" },
+  { src: "/assets/img/gallery/sanjose-recognition-2024.jpg", alt: "Commendation from the City of San Jose [Apr 2024]" },
+  { src: "/assets/img/gallery/tractx-poster.jpg", alt: "Presenting TractX [Mar 2024]" },
+  { src: "/assets/img/gallery/whitehouse-selfie.jpg", alt: "Outside the West Wing [Nov 2023]" },
+  { src: "/assets/img/gallery/whitehouse-donut.jpg", alt: "Donut break at the White House [Nov 2023]" },
+  { src: "/assets/img/gallery/fall-wearable-poster.jpg", alt: "Presenting the fall-prevention wearable [Oct 2023]" },
+  { src: "/assets/img/gallery/trophies-pineapple.jpg", alt: "World Scholar's Cup Awards! [Jul 2023]" },
+  { src: "/assets/img/gallery/wearable-prototype.jpg", alt: "Testing the wearable prototype (with an assistant) [Mar 2023]", position: "center 25%" },
+  { src: "/assets/img/gallery/smka.jpeg", alt: "P2 at Formula KFX (CCKRA) [Jul 2026]" },
+  { src: "/assets/img/gallery/alaska.jpg", alt: "Alaska Research Expedition on the Endeavor [Jun 2026]" },
   { src: "/assets/img/gallery/elementaryclass.jpg", alt: "Last day of school special talk at my sister's class!" },
-  { src: "/assets/img/gallery/isefawards_new.jpeg", alt: "Comp Bio Awards" },
-  { src: "/assets/img/gallery/isef_new.jpg", alt: "ISEF 26 Booth" },
-  { src: "/assets/img/gallery/group_new.jpg", alt: "ISEF 26 Silicon Valley Delegation" },
-  { src: "/assets/img/gallery/stanford.jpeg", alt: "Visiting Dr. Hainmueller's Lab" },
+  { src: "/assets/img/gallery/isefawards_new.jpeg", alt: "Comp Bio Awards [May 2026]" },
+  { src: "/assets/img/gallery/isef_new.jpg", alt: "ISEF 26 Booth [May 2026]" },
+  { src: "/assets/img/gallery/group_new.jpg", alt: "ISEF 26 Silicon Valley Delegation [May 2026]" },
+  { src: "/assets/img/gallery/stanford.jpeg", alt: "Visiting Dr. Hainmueller's Lab [Apr 2026]" },
   { src: "/assets/img/gallery/award_new.png", alt: "Grand award at Silicon Valley Science Fair" },
   { src: "/assets/img/gallery/candlelight.jpeg", alt: "Power outage! Working by candlelight" },
   { src: "/assets/img/gallery/image.png", alt: "2-stroke Karting top 10!" },
@@ -294,20 +303,20 @@ export const galleryImages = [
   { src: "/assets/img/gallery/5k.jpg", alt: "Running 5K after Amma defeats cancer!" },
   { src: "/assets/img/gallery/citycouncil.jpg", alt: "City Council Recognition" },
   { src: "/assets/img/gallery/tedtalk.jpg", alt: "TEDxBISV 2025" },
-  { src: "/assets/img/gallery/eegdata.jpeg", alt: "EEG working!" },
+  { src: "/assets/img/gallery/eegdata.jpeg", alt: "EEG working! [Nov 2025]" },
   { src: "/assets/img/gallery/DCsummit.jpg", alt: "Diamond Challenge Summit" },
   { src: "/assets/img/gallery/csef.jpg", alt: "CSEF 2025" },
   { src: "/assets/img/gallery/synopsysAwards.jpg", alt: "Grand award alternate at Silicon Valley Science Fair" },
-  { src: "/assets/img/gallery/sft.jpeg", alt: "BISV Middle Science Fair Team!" },
-  { src: "/assets/img/gallery/firstpodium.jpg", alt: "First Podium" },
-  { src: "/assets/img/gallery/firstcomplab.jpeg", alt: "First Day at the Holmes Lab" },
+  { src: "/assets/img/gallery/sft.jpeg", alt: "BISV Middle Science Fair Team! [Sep 2024]" },
+  { src: "/assets/img/gallery/firstpodium.jpg", alt: "First Podium [Jun 2025]" },
+  { src: "/assets/img/gallery/firstcomplab.jpeg", alt: "First Day at the Holmes Lab [Jun 2025]" },
   { src: "/assets/img/gallery/firstultraprecisetract.png", alt: "Ultra precise tractogram" },
   { src: "/assets/img/gallery/tedbisv24.jpeg", alt: "TEDxBISV 2024" },
-  { src: "/assets/img/gallery/tractv1.jpeg", alt: "TractX Version 1" },
+  { src: "/assets/img/gallery/tractv1.jpeg", alt: "TractX Version 1 [Dec 2023]" },
   { src: "/assets/img/gallery/firstEngineering.jpg", alt: "First Engineering in the entire US!" },
   { src: "/assets/img/gallery/congress.jpg", alt: "Advocacy at the White House" },
   { src: "/assets/img/gallery/nationals.jpg", alt: "Thermo Fisher JIC Booth" },
   { src: "/assets/img/gallery/challenge.jpg", alt: "Engineering Challenge" },
-  { src: "/assets/img/gallery/construct.jpg", alt: "Working on the Balancerator" },
+  { src: "/assets/img/gallery/construct.jpg", alt: "Working on the Balancerator [Nov 2022]" },
   { src: "/assets/img/gallery/elementary_new.jpg", alt: "First science fair" },
 ];
