@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { projects } from '../../data/content';
+import ProjectSpotlight from './ProjectSpotlight';
 import './Research.css';
+
+// Shown on the project cards too, so visitors see what's still underway
+const isDevLabel = (label) => label?.toUpperCase() === 'IN DEVELOPMENT';
+const isInDevelopment = (project) => [project.status, ...(project.tags || [])].some(isDevLabel);
 
 const Research = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -26,12 +31,11 @@ const Research = () => {
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'IN PROGRESS': return 'status-progress';
       case 'PUBLISHED': return 'status-published';
-      case 'PREPRINT': return 'status-preprint';
+      case 'PREPRINT':
+      case 'PREPRINT POSTED': return 'status-preprint';
       case 'STARTUP': return 'status-startup';
-      case 'COMPLETED': return 'status-completed';
-      case 'TO BE PATENTED': return 'status-patent';
+      case 'PATENT PENDING': return 'status-patent';
       default: return '';
     }
   };
@@ -56,7 +60,7 @@ const Research = () => {
             </div>
           </div>
           <div className="projects-timeline">
-            {projects.map((project, index) => (
+            {projects.filter((project) => !project.archived).map((project) => (
               <article
                 key={project.id}
                 className="project-card"
@@ -71,9 +75,9 @@ const Research = () => {
                 <div className="project-content">
                   <div className="project-header">
                     <h3 className="project-title">{project.title}</h3>
-                    <span className={`project-status ${getStatusClass(project.status)}`}>
-                      {project.status}
-                    </span>
+                    {isInDevelopment(project) && (
+                      <span className="project-status status-dev">In Development</span>
+                    )}
                   </div>
                   <p className="project-subtitle">{project.subtitle}</p>
                 </div>
@@ -97,7 +101,7 @@ const Research = () => {
             onClick={() => setSelectedProject(null)}
           >
             <div
-              className="project-modal"
+              className={`project-modal${selectedProject.layout === 'spotlight' ? ' is-spotlight' : ''}`}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
@@ -111,19 +115,40 @@ const Research = () => {
 
               <div className="modal-header">
                 <span className="modal-year">{selectedProject.year}</span>
-                <span className={`modal-status ${getStatusClass(selectedProject.status)}`}>
-                  {selectedProject.status}
-                </span>
+                {isInDevelopment(selectedProject) && (
+                  <span className="modal-status status-dev">In Development</span>
+                )}
+                {selectedProject.status && !isDevLabel(selectedProject.status) && (
+                  <span className={`modal-status ${getStatusClass(selectedProject.status)}`}>
+                    {selectedProject.status}
+                  </span>
+                )}
+                {selectedProject.tags?.filter((tag) => !isDevLabel(tag)).map((tag) => (
+                  <span key={tag} className="modal-status status-tag">
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              <h2 className="modal-title">{selectedProject.title}</h2>
-              <p className="modal-subtitle">{selectedProject.subtitle}</p>
+              <h2 className="modal-title">
+                {(selectedProject.subtitle
+                  ? `${selectedProject.title}: ${selectedProject.subtitle}`
+                  : selectedProject.title
+                ).split(/(\S+-\S+)/).map((part, i) =>
+                  i % 2 ? <span key={i} className="nowrap">{part}</span> : part
+                )}
+              </h2>
 
               <div className="modal-divider"></div>
 
               <div className="modal-description">
-                <p>{selectedProject.description}</p>
-                
+                <p>
+                  {selectedProject.description}
+                  {selectedProject.teammates?.length > 0 && (
+                    <>{' '}<strong>Teammates: {selectedProject.teammates.join(', ')}</strong></>
+                  )}
+                </p>
+
                 {selectedProject.motivation && (
                   <div className="modal-motivation">
                     <h4>Motivation</h4>
@@ -136,7 +161,16 @@ const Research = () => {
                 )}
               </div>
 
-              {selectedProject.images && selectedProject.images.length > 0 && (
+              {selectedProject.layout === 'spotlight' && (
+                <ProjectSpotlight
+                  key={selectedProject.id}
+                  project={selectedProject}
+                  onOpenImage={setLightboxImage}
+                  blockKeys={!!lightboxImage}
+                />
+              )}
+
+              {selectedProject.layout !== 'spotlight' && selectedProject.images?.length > 0 && (
                 <div className="modal-gallery">
                   <h4>Project Gallery</h4>
                   <div className="modal-gallery-grid">
@@ -157,28 +191,30 @@ const Research = () => {
                 </div>
               )}
 
-              <div className="modal-resources">
-                <h4>Resources</h4>
-                <div className="resources-list">
-                  {selectedProject.resources.map((resource, index) => (
-                    <a
-                      key={index}
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="resource-link"
-                    >
-                      <span className="resource-label">{resource.label}</span>
-                      {resource.note && (
-                        <span className="resource-note">{resource.note}</span>
-                      )}
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5"/>
-                      </svg>
-                    </a>
-                  ))}
+              {selectedProject.layout !== 'spotlight' && (
+                <div className="modal-resources">
+                  <h4>Resources</h4>
+                  <div className="resources-list">
+                    {selectedProject.resources.map((resource, index) => (
+                      <a
+                        key={index}
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="resource-link"
+                      >
+                        <span className="resource-label">{resource.label}</span>
+                        {resource.note && (
+                          <span className="resource-note">{resource.note}</span>
+                        )}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5"/>
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         )}
@@ -202,7 +238,9 @@ const Research = () => {
             src={lightboxImage.src} 
             alt={lightboxImage.alt}
             className="lightbox-image"
+            draggable="false"
             onClick={(e) => e.stopPropagation()}
+            onContextMenu={(e) => e.preventDefault()}
           />
         </div>
       )}

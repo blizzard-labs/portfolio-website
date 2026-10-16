@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import './Notebook.css';
 
 const BASE = '/assets/notebook';
@@ -110,14 +110,14 @@ const Notebook = ({ isOpen, onClose }) => {
   return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <Motion.div
           className="notebook-overlay"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
-          <motion.div
+          <Motion.div
             className="notebook-modal"
             role="dialog"
             aria-modal="true"
@@ -193,8 +193,8 @@ const Notebook = ({ isOpen, onClose }) => {
                 </button>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       )}
     </AnimatePresence>,
     document.body

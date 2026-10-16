@@ -7,6 +7,15 @@ main {
   position: relative;
 }
 
+/* Keep the alternating shades tied to the displayed section order. */
+main > .section {
+  background-color: var(--color-ivory);
+}
+
+main > .section:nth-of-type(odd) {
+  background-color: var(--color-cream);
+}
+
 /* Smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;

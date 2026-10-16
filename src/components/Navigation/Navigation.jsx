@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import Notebook from '../Notebook/Notebook';
 import './Navigation.css';
+
+const navItems = [
+  { id: 'about', label: 'About' },
+  { id: 'research', label: 'Research' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'featured', label: 'Featured' },
+];
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,31 +16,35 @@ const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notebookOpen, setNotebookOpen] = useState(false);
 
-  const navItems = [
-    { id: 'about', label: 'About' },
-    { id: 'research', label: 'Research' },
-    { id: 'gallery', label: 'Gallery' },
-  ];
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Determine active section
+      // Use the same section list as the buttons, including the last section
+      // when the page cannot scroll far enough to bring it to the top.
       const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
+        if (!section) continue;
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        const activationPoint = Math.max(0, Math.min(sectionTop - 100, maxScroll));
+        if (window.scrollY >= activationPoint - 1) {
           setActiveSection(navItems[i].id);
           break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const initialFrame = requestAnimationFrame(handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   // Lock page scroll behind the open mobile menu; close it on Escape or when
@@ -56,6 +67,7 @@ const Navigation = () => {
   }, [mobileMenuOpen]);
 
   const scrollToSection = (sectionId) => {
+    setActiveSection(sectionId);
     setMobileMenuOpen(false);
     // Wait a frame so the menu's scroll lock is released before scrolling
     requestAnimationFrame(() => {
@@ -65,14 +77,14 @@ const Navigation = () => {
 
   return (
     <>
-      <motion.nav 
+      <Motion.nav
         className={`navigation ${isScrolled ? 'scrolled' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <div className="nav-container">
-          <motion.div 
+          <Motion.div
             className="nav-logo"
             whileHover={{ scale: 1.02 }}
             onClick={() => scrollToSection('about')}
@@ -80,14 +92,15 @@ const Navigation = () => {
             <span className="logo-text">Project</span>
             <span className="logo-dot"> </span>
             <span className="logo-text">Portfolio</span>
-          </motion.div>
+          </Motion.div>
 
           <div className="nav-right">
             <div className="nav-items">
               {navItems.map((item, index) => (
-                <motion.button
+                <Motion.button
                   key={item.id}
                   className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
+                  aria-current={activeSection === item.id ? 'location' : undefined}
                   onClick={() => scrollToSection(item.id)}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -96,15 +109,15 @@ const Navigation = () => {
                 >
                   <span className="nav-item-text">{item.label}</span>
                   {activeSection === item.id && (
-                    <motion.div
+                    <Motion.div
                       className="nav-item-indicator"
                       layoutId="activeIndicator"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                </motion.button>
+                </Motion.button>
               ))}
-              <motion.a
+              <Motion.a
                 href="https://blog.krishna-bhatt.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -114,7 +127,7 @@ const Navigation = () => {
                 transition={{ delay: navItems.length * 0.1, duration: 0.4 }}
               >
                 Weblog
-              </motion.a>
+              </Motion.a>
             </div>
 
             <a
@@ -140,11 +153,11 @@ const Navigation = () => {
             <span className="hamburger-line"></span>
           </button>
         </div>
-      </motion.nav>
+      </Motion.nav>
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <Motion.div
             className="mobile-menu"
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
@@ -153,9 +166,10 @@ const Navigation = () => {
           >
             <div className="mobile-menu-content">
               {navItems.map((item, index) => (
-                <motion.button
+                <Motion.button
                   key={item.id}
                   className={`mobile-nav-item ${activeSection === item.id ? 'active' : ''}`}
+                  aria-current={activeSection === item.id ? 'location' : undefined}
                   onClick={() => scrollToSection(item.id)}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -163,9 +177,9 @@ const Navigation = () => {
                 >
                   <span className="mobile-nav-number">0{index + 1}</span>
                   <span className="mobile-nav-text">{item.label}</span>
-                </motion.button>
+                </Motion.button>
               ))}
-              <motion.a
+              <Motion.a
                 href="https://blog.krishna-bhatt.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -176,7 +190,7 @@ const Navigation = () => {
               >
                 <span className="mobile-nav-number">0{navItems.length + 1}</span>
                 <span className="mobile-nav-text">Weblog</span>
-              </motion.a>
+              </Motion.a>
               <a
                 href="#notebook"
                 role="button"
@@ -190,7 +204,7 @@ const Navigation = () => {
                 Notebook
               </a>
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
 

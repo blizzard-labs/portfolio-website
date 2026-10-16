@@ -1,6 +1,7 @@
 import Navigation from './components/Navigation/Navigation';
 import About from './components/About/About';
 import Research from './components/Research/Research';
+import Featured from './components/Featured/Featured';
 import Readings from './components/Readings/Readings';
 import Gallery from './components/Gallery/Gallery';
 import Footer from './components/Footer/Footer';
@@ -16,6 +17,7 @@ function App() {
         <Research />
         <Gallery />
         <Readings />
+        <Featured />
       </main>
       <Footer />
     </>

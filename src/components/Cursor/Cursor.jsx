@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import './Cursor.css';
 
 const Cursor = () => {
@@ -35,7 +35,7 @@ const Cursor = () => {
 
   return (
     <>
-      <motion.div
+      <Motion.div
         className="cursor-dot"
         animate={{
           x: mousePosition.x - 4,
@@ -48,7 +48,7 @@ const Cursor = () => {
           mass: 0.5,
         }}
       />
-      <motion.div
+      <Motion.div
         className={`cursor-ring ${isHovering ? 'hovering' : ''}`}
         animate={{
           x: mousePosition.x - 20,
