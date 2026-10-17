@@ -369,7 +369,6 @@ export const galleryImages = [
   { src: "/assets/img/gallery/whitehouse-donut.jpg", alt: "Donut break at the White House [Nov 2023]" },
   { src: "/assets/img/gallery/fall-wearable-poster.jpg", alt: "Presenting the fall-prevention wearable [Oct 2023]" },
   { src: "/assets/img/gallery/trophies-pineapple.jpg", alt: "World Scholar's Cup Awards! [Jul 2023]" },
-  { src: "/assets/img/gallery/wearable-prototype.jpg", alt: "Testing the wearable prototype (with an assistant) [Mar 2023]", position: "center 25%" },
   { src: "/assets/img/gallery/smka.jpeg", alt: "P2 at Formula KFX (CCKRA) [Jul 2026]" },
   { src: "/assets/img/gallery/alaska.jpg", alt: "Alaska Research Expedition on the Endeavor [Jun 2026]" },
   { src: "/assets/img/gallery/elementaryclass.jpg", alt: "Last day of school special talk at my sister's class!" },
