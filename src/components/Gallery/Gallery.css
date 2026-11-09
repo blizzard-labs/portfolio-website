@@ -74,7 +74,7 @@
 .gallery-item {
   position: relative;
   flex-shrink: 0;
-  --tile-height: clamp(140px, 24vh, 260px);
+  --tile-height: clamp(120px, 17.5vh, 195px);
   height: var(--tile-height);
   width: calc(var(--tile-height) * 4 / 3);
   margin-right: 0;

@@ -1,9 +1,10 @@
 import ResponsiveImage from '../ResponsiveImage';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { projects } from '../../data/content';
-import ProjectSpotlight from './ProjectSpotlight';
 import './Research.css';
+
+const ProjectSpotlight = lazy(() => import('./ProjectSpotlight'));
 
 // Shown on the project cards too, so visitors see what's still underway
 const isDevLabel = (label) => label?.toUpperCase() === 'IN DEVELOPMENT';
@@ -164,12 +165,14 @@ const Research = () => {
               </div>
 
               {selectedProject.layout === 'spotlight' && (
-                <ProjectSpotlight
-                  key={selectedProject.id}
-                  project={selectedProject}
-                  onOpenImage={setLightboxImage}
-                  blockKeys={!!lightboxImage}
-                />
+                <Suspense fallback={<p role="status">Loading project…</p>}>
+                  <ProjectSpotlight
+                    key={selectedProject.id}
+                    project={selectedProject}
+                    onOpenImage={setLightboxImage}
+                    blockKeys={!!lightboxImage}
+                  />
+                </Suspense>
               )}
 
               {selectedProject.layout !== 'spotlight' && selectedProject.images?.length > 0 && (

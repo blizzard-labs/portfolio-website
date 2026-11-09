@@ -26,6 +26,16 @@ Commit `public/assets/img/optimized`, `src/data/image-manifest.json`, and the bu
 alongside the source changes. Regular builds and VM deployment need no image tools.
 Use `ResponsiveImage` for new images and provide `sizes` matching their CSS width.
 
+Project viewer code and its YouTube player load only when a project popup is opened.
+Featured videos retain native lazy-loaded YouTube embeds. Notebook code and styles
+load on first open. Fonts are discovered directly from the HTML head with
+preconnected hosts.
+
+For a local production smoke check, run `npm run build` then `npm run preview`.
+Check video playback, a project PDF, notebook navigation, and the gallery lightbox
+before deploying. If the development server reports `Outdated Optimize Dep`, restart
+it and reload the browser; this is a Vite development-cache error.
+
 For the existing Google Cloud VM, follow **Update the website**. For a fresh Ubuntu VM, complete **Set up a new VM** first, then use the same update commands.
 
 ## Connect to the VM

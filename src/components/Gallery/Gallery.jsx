@@ -10,19 +10,21 @@ for (let i = images.length - 1; i > 0; i--) {
   [images[i], images[j]] = [images[j], images[i]];
 }
 
-// Alternate photos between the two rows; `index` stays the position in `images`
-const rows = [0, 1].map((r) =>
-  images.map((image, index) => ({ image, index })).filter(({ index }) => index % 2 === r)
+// Distribute photos across three rows; `index` stays the position in `images`.
+const rows = [0, 1, 2].map((r) =>
+  images.map((image, index) => ({ image, index })).filter(({ index }) => index % 3 === r)
 );
+// Follow each row left-to-right, then advance to the next row.
+const lightboxOrder = rows.flat().map(({ index }) => index);
 
 const LOOP_COPIES = 3;
-const AUTO_SPEED = 20; // px per second
+const AUTO_SPEED = 8; // px per second for the outer rows
+const MIDDLE_SPEED_FACTOR = 0.75;
 
-// One infinitely looping row. `direction` sets which way it drifts on its own.
 // Width of one full set of images (track holds LOOP_COPIES identical sets)
 const getSetWidth = (track) => (track ? track.scrollWidth / LOOP_COPIES : 0);
 
-const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
+const GalleryRow = ({ items, trackRef, onSelect }) => {
   // Center once before paint; resizing must preserve the current photo position.
   useLayoutEffect(() => {
     const track = trackRef.current;
@@ -53,40 +55,6 @@ const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
     }
   };
 
-  // Slow auto-scroll; `pauseRef.current()` says whether the strip is paused
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let visible = false;
-    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; });
-    io.observe(track);
-
-    // scrollLeft may be rounded to whole pixels, so track position as a float
-    let pos = track.scrollLeft;
-    let last = performance.now();
-    let frame;
-    const tick = (now) => {
-      const dt = Math.min(now - last, 100) / 1000;
-      last = now;
-      const active = visible && !document.hidden && !pauseRef.current(now);
-      if (Math.abs(track.scrollLeft - pos) > 2) pos = track.scrollLeft; // user scrolled
-      if (active) {
-        pos += direction * AUTO_SPEED * dt;
-        const setWidth = getSetWidth(track);
-        if (setWidth && pos > setWidth * 1.5) pos -= setWidth;
-        if (setWidth && pos < setWidth * 0.5) pos += setWidth;
-        track.scrollLeft = pos;
-      }
-      frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => {
-      cancelAnimationFrame(frame);
-      io.disconnect();
-    };
-  }, [direction, trackRef, pauseRef]);
 
   return (
     <div className="gallery-track" ref={trackRef} onScroll={handleScroll}>
@@ -100,7 +68,7 @@ const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
           >
             <ResponsiveImage
               src={image.src}
-              sizes="(max-height: 583px) 187px, (max-height: 1083px) 32vh, 347px"
+              sizes="(max-height: 686px) 160px, (max-height: 1114px) 23.34vh, 260px"
               maxWidth={1280}
               alt={copy === 1 ? image.alt : ''}
               style={image.position && { objectPosition: image.position }}
@@ -122,6 +90,7 @@ const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const topRef = useRef(null);
+  const middleRef = useRef(null);
   const bottomRef = useRef(null);
 
   // Auto-scroll pauses while hovered, touched, or while the lightbox is open;
@@ -137,30 +106,71 @@ const Gallery = () => {
     hoveringRef.current || lightboxOpenRef.current || now < pausedUntilRef.current
   );
 
+  // Share one clock; the middle row drifts more gently in the opposite direction.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const tracks = [topRef.current, middleRef.current, bottomRef.current];
+    if (tracks.some((track) => !track)) return;
+    const visible = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) visible.add(target);
+        else visible.delete(target);
+      });
+    });
+    tracks.forEach((track) => observer.observe(track));
+
+    const positions = tracks.map((track) => track.scrollLeft);
+    const written = [...positions];
+    let last = performance.now();
+    let frame;
+    const tick = (now) => {
+      const distance = AUTO_SPEED * Math.min(now - last, 100) / 1000;
+      last = now;
+      const active = visible.size > 0 && !document.hidden && !pauseRef.current(now);
+      tracks.forEach((track, index) => {
+        // Only resync for external scrolling/resizing, not browser pixel rounding.
+        if (track.scrollLeft !== written[index]) positions[index] = track.scrollLeft;
+        if (active) {
+          positions[index] += (index === 1 ? -MIDDLE_SPEED_FACTOR : 1) * distance;
+          const setWidth = getSetWidth(track);
+          if (setWidth && positions[index] > setWidth * 1.5) positions[index] -= setWidth;
+          if (setWidth && positions[index] < setWidth * 0.5) positions[index] += setWidth;
+          track.scrollLeft = positions[index];
+        }
+        written[index] = track.scrollLeft;
+      });
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, []);
+
   const pauseFor = (ms) => {
     pausedUntilRef.current = Math.max(pausedUntilRef.current, performance.now() + ms);
   };
 
   const scrollByItems = (direction) => {
     pauseFor(3000);
-    [topRef, bottomRef].forEach(({ current: track }) => {
+    [topRef, middleRef, bottomRef].forEach(({ current: track }) => {
       track?.scrollBy({ left: direction * track.clientWidth * 0.6, behavior: 'smooth' });
     });
   };
 
-  const prevImage = () => {
+  const stepImage = (direction) => {
     setSelectedImage((prev) => {
-      const newIndex = (prev.index - 1 + images.length) % images.length;
+      if (!prev) return prev;
+      const position = lightboxOrder.indexOf(prev.index);
+      const newIndex = lightboxOrder[(position + direction + lightboxOrder.length) % lightboxOrder.length];
       return { ...images[newIndex], index: newIndex };
     });
   };
 
-  const nextImage = () => {
-    setSelectedImage((prev) => {
-      const newIndex = (prev.index + 1) % images.length;
-      return { ...images[newIndex], index: newIndex };
-    });
-  };
+  const prevImage = () => stepImage(-1);
+  const nextImage = () => stepImage(1);
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -220,8 +230,9 @@ const Gallery = () => {
         </button>
 
         <div className="gallery-rows">
-          <GalleryRow items={rows[0]} direction={1} trackRef={topRef} pauseRef={pauseRef} onSelect={setSelectedImage} />
-          <GalleryRow items={rows[1]} direction={-1} trackRef={bottomRef} pauseRef={pauseRef} onSelect={setSelectedImage} />
+          <GalleryRow items={rows[0]} trackRef={topRef} onSelect={setSelectedImage} />
+          <GalleryRow items={rows[1]} trackRef={middleRef} onSelect={setSelectedImage} />
+          <GalleryRow items={rows[2]} trackRef={bottomRef} onSelect={setSelectedImage} />
         </div>
 
         <button

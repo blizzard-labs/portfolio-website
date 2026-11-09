@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
-import Notebook from '../Notebook/Notebook';
 import './Navigation.css';
+
+const Notebook = lazy(() => import('../Notebook/Notebook'));
 
 const navItems = [
   { id: 'about', label: 'About' },
@@ -15,6 +16,7 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notebookOpen, setNotebookOpen] = useState(false);
+  const [notebookLoaded, setNotebookLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,6 +138,7 @@ const Navigation = () => {
               className="nav-resume-btn"
               onClick={(e) => {
                 e.preventDefault();
+                setNotebookLoaded(true);
                 setNotebookOpen(true);
               }}
             >
@@ -198,6 +201,7 @@ const Navigation = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   setMobileMenuOpen(false);
+                  setNotebookLoaded(true);
                   setNotebookOpen(true);
                 }}
               >
@@ -208,7 +212,11 @@ const Navigation = () => {
         )}
       </AnimatePresence>
 
-      <Notebook isOpen={notebookOpen} onClose={() => setNotebookOpen(false)} />
+      {notebookLoaded && (
+        <Suspense fallback={<p role="status" className="notebook-loading">Loading notebook…</p>}>
+          <Notebook isOpen={notebookOpen} onClose={() => setNotebookOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 };
