@@ -1,3 +1,4 @@
+import ResponsiveImage from '../ResponsiveImage';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { projects } from '../../data/content';
@@ -49,8 +50,9 @@ const Research = () => {
             <div className="section-line"></div>
           </div>
           <div className="research-hero-image">
-            <img 
-              src="/assets/img/tractogram3.png" 
+            <ResponsiveImage
+              src="/assets/img/tractogram3.png"
+              sizes="(max-width: 1280px) 90vw, 1200px"
               alt="Tractogram visualization"
               className="tractogram-image"
             />
@@ -71,7 +73,7 @@ const Research = () => {
                   {project.year}
                   <span className="year-bracket">]</span>
                 </div>
-                
+
                 <div className="project-content">
                   <div className="project-header">
                     <h3 className="project-title">{project.title}</h3>
@@ -104,7 +106,7 @@ const Research = () => {
               className={`project-modal${selectedProject.layout === 'spotlight' ? ' is-spotlight' : ''}`}
               onClick={(e) => e.stopPropagation()}
             >
-              <button 
+              <button
                 className="modal-close"
                 onClick={() => setSelectedProject(null)}
               >
@@ -175,15 +177,15 @@ const Research = () => {
                   <h4>Project Gallery</h4>
                   <div className="modal-gallery-grid">
                     {selectedProject.images.map((image, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="modal-gallery-item"
                         onClick={(e) => {
                           e.stopPropagation();
                           setLightboxImage(image);
                         }}
                       >
-                        <img src={image.src} alt={image.alt} />
+                        <ResponsiveImage src={image.src} sizes="300px" maxWidth={640} alt={image.alt} />
                         <span className="gallery-item-caption">Fig. {index + 1}</span>
                       </div>
                     ))}
@@ -222,11 +224,11 @@ const Research = () => {
 
       {/* Image Lightbox */}
       {lightboxImage && (
-        <div 
+        <div
           className="lightbox-overlay"
           onClick={() => setLightboxImage(null)}
         >
-          <button 
+          <button
             className="lightbox-close"
             onClick={() => setLightboxImage(null)}
           >
@@ -234,8 +236,8 @@ const Research = () => {
               <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="1.5"/>
             </svg>
           </button>
-          <img 
-            src={lightboxImage.src} 
+          <ResponsiveImage
+            src={lightboxImage.src} loading="eager" sizes="90vw"
             alt={lightboxImage.alt}
             className="lightbox-image"
             draggable="false"

@@ -1,0 +1,1238 @@
+{
+  "/assets/img/gallery/5k.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/5k-38414c6195ca-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/5k-38414c6195ca-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/5k-38414c6195ca-1200.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "/assets/img/gallery/DCsummit.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/DCsummit-44fa1cad9ddc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/DCsummit-44fa1cad9ddc-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/DCsummit-44fa1cad9ddc-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/DCsummit-44fa1cad9ddc-1600.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/assets/img/gallery/alamo-square-empathy-cafe.jpg": {
+    "width": 2000,
+    "height": 1256,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/alamo-square-empathy-cafe-e70afced93d9-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/alamo-square-empathy-cafe-e70afced93d9-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/alamo-square-empathy-cafe-e70afced93d9-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/alamo-square-empathy-cafe-e70afced93d9-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/alaska-skiff.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/alaska-skiff-e9c90359568e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/alaska-skiff-e9c90359568e-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/alaska-skiff-e9c90359568e-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/alaska-skiff-e9c90359568e-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/alaska.jpg": {
+    "width": 2048,
+    "height": 1536,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/alaska-c3dcc1c5a2a3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/alaska-c3dcc1c5a2a3-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/alaska-c3dcc1c5a2a3-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/alaska-c3dcc1c5a2a3-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/award_new.png": {
+    "width": 3420,
+    "height": 1926,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/award_new-9f1db04e9897-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/award_new-9f1db04e9897-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/award_new-9f1db04e9897-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/award_new-9f1db04e9897-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/brain-brew-walk-to-end-alzheimers.png": {
+    "width": 2078,
+    "height": 1550,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/brain-brew-walk-to-end-alzheimers-25adf731293f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/brain-brew-walk-to-end-alzheimers-25adf731293f-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/brain-brew-walk-to-end-alzheimers-25adf731293f-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/brain-brew-walk-to-end-alzheimers-25adf731293f-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/brainbrew-filming.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/brainbrew-filming-fa0cb34343c2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/brainbrew-filming-fa0cb34343c2-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/brainbrew-filming-fa0cb34343c2-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/brainbrew-filming-fa0cb34343c2-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/candlelight.jpeg": {
+    "width": 769,
+    "height": 1022,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/candlelight-84ff4a7b8395-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/candlelight-84ff4a7b8395-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/candlelight-84ff4a7b8395-769.webp",
+        "width": 769
+      }
+    ]
+  },
+  "/assets/img/gallery/challenge.jpg": {
+    "width": 2048,
+    "height": 1365,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/challenge-1cf096352f39-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/challenge-1cf096352f39-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/challenge-1cf096352f39-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/challenge-1cf096352f39-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/citycouncil.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/citycouncil-491d41d81be9-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/citycouncil-491d41d81be9-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/citycouncil-491d41d81be9-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/citycouncil-491d41d81be9-1600.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/assets/img/gallery/cityhall-purple.jpg": {
+    "width": 640,
+    "height": 895,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/cityhall-purple-805703ba731c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/cityhall-purple-805703ba731c-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  "/assets/img/gallery/classroom-under-desk.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/classroom-under-desk-4492e6533249-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/classroom-under-desk-4492e6533249-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/classroom-under-desk-4492e6533249-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/classroom-under-desk-4492e6533249-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/congress.jpg": {
+    "width": 2048,
+    "height": 1365,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/congress-d9a1738eaeed-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/congress-d9a1738eaeed-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/congress-d9a1738eaeed-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/congress-d9a1738eaeed-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/construct.jpg": {
+    "width": 1586,
+    "height": 2106,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/construct-0e1095356d9f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/construct-0e1095356d9f-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/construct-0e1095356d9f-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/construct-0e1095356d9f-1586.webp",
+        "width": 1586
+      }
+    ]
+  },
+  "/assets/img/gallery/csef.jpg": {
+    "width": 1204,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/csef-0cca4529b8ab-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/csef-0cca4529b8ab-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/csef-0cca4529b8ab-1204.webp",
+        "width": 1204
+      }
+    ]
+  },
+  "/assets/img/gallery/datagathering.png": {
+    "width": 1724,
+    "height": 984,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/datagathering-fa740f10168b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/datagathering-fa740f10168b-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/datagathering-fa740f10168b-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/datagathering-fa740f10168b-1724.webp",
+        "width": 1724
+      }
+    ]
+  },
+  "/assets/img/gallery/eegdata.jpeg": {
+    "width": 1024,
+    "height": 768,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/eegdata-ae211d593597-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/eegdata-ae211d593597-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/eegdata-ae211d593597-1024.webp",
+        "width": 1024
+      }
+    ]
+  },
+  "/assets/img/gallery/elementary_new.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/elementary_new-022c12f4bf7b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/elementary_new-022c12f4bf7b-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/elementary_new-022c12f4bf7b-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/elementary_new-022c12f4bf7b-1600.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/assets/img/gallery/elementaryclass.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/elementaryclass-8678ad70454d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/elementaryclass-8678ad70454d-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/elementaryclass-8678ad70454d-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/elementaryclass-8678ad70454d-1600.webp",
+        "width": 1600
+      }
+    ]
+  },
+  "/assets/img/gallery/fall-wearable-poster.jpg": {
+    "width": 768,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/fall-wearable-poster-9563d9262584-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/fall-wearable-poster-9563d9262584-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/fall-wearable-poster-9563d9262584-768.webp",
+        "width": 768
+      }
+    ]
+  },
+  "/assets/img/gallery/film-set-interview.jpg": {
+    "width": 896,
+    "height": 1120,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/film-set-interview-ab8a6e0d8080-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/film-set-interview-ab8a6e0d8080-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/film-set-interview-ab8a6e0d8080-896.webp",
+        "width": 896
+      }
+    ]
+  },
+  "/assets/img/gallery/firstEngineering.jpg": {
+    "width": 2048,
+    "height": 1365,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/firstEngineering-584b8b159836-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/firstEngineering-584b8b159836-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/firstEngineering-584b8b159836-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/firstEngineering-584b8b159836-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/firstcomplab.jpeg": {
+    "width": 1024,
+    "height": 768,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/firstcomplab-980344450cdc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/firstcomplab-980344450cdc-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/firstcomplab-980344450cdc-1024.webp",
+        "width": 1024
+      }
+    ]
+  },
+  "/assets/img/gallery/firstpodium.jpg": {
+    "width": 3072,
+    "height": 4080,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/firstpodium-524b3a48c873-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/firstpodium-524b3a48c873-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/firstpodium-524b3a48c873-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/firstpodium-524b3a48c873-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/firstultraprecisetract.png": {
+    "width": 4480,
+    "height": 2520,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/firstultraprecisetract-cbe19fd6c28c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/firstultraprecisetract-cbe19fd6c28c-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/firstultraprecisetract-cbe19fd6c28c-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/firstultraprecisetract-cbe19fd6c28c-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/group_new.jpg": {
+    "width": 3226,
+    "height": 2420,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/group_new-a2a5ad89e94b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/group_new-a2a5ad89e94b-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/group_new-a2a5ad89e94b-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/group_new-a2a5ad89e94b-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/image.png": {
+    "width": 4080,
+    "height": 3072,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/image-b53627ad5473-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/image-b53627ad5473-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/image-b53627ad5473-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/image-b53627ad5473-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/isef_new.jpg": {
+    "width": 1586,
+    "height": 2106,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/isef_new-b27c94fb64bc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/isef_new-b27c94fb64bc-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/isef_new-b27c94fb64bc-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/isef_new-b27c94fb64bc-1586.webp",
+        "width": 1586
+      }
+    ]
+  },
+  "/assets/img/gallery/isefawards_new.jpeg": {
+    "width": 480,
+    "height": 360,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/isefawards_new-e9990c103cdb-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/isefawards_new-e9990c103cdb-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/assets/img/gallery/kayaking.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/kayaking-03106dd2e085-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/kayaking-03106dd2e085-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/kayaking-03106dd2e085-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/kayaking-03106dd2e085-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/mesonet-poster.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/mesonet-poster-fc21a6e2699c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/mesonet-poster-fc21a6e2699c-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/mesonet-poster-fc21a6e2699c-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/mesonet-poster-fc21a6e2699c-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/nationals.jpg": {
+    "width": 799,
+    "height": 533,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/nationals-10b2a28a4561-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/nationals-10b2a28a4561-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/nationals-10b2a28a4561-799.webp",
+        "width": 799
+      }
+    ]
+  },
+  "/assets/img/gallery/paper-airplanes.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/paper-airplanes-6ee4a9559d4e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/paper-airplanes-6ee4a9559d4e-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/paper-airplanes-6ee4a9559d4e-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/paper-airplanes-6ee4a9559d4e-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/pc-build.jpg": {
+    "width": 1500,
+    "height": 2000,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/pc-build-30be75cac933-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/pc-build-30be75cac933-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/pc-build-30be75cac933-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/pc-build-30be75cac933-1500.webp",
+        "width": 1500
+      }
+    ]
+  },
+  "/assets/img/gallery/sanjose-recognition-2024.jpg": {
+    "width": 1494,
+    "height": 1984,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2024-149d01c153a7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2024-149d01c153a7-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2024-149d01c153a7-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2024-149d01c153a7-1494.webp",
+        "width": 1494
+      }
+    ]
+  },
+  "/assets/img/gallery/sanjose-recognition-2026.jpg": {
+    "width": 1128,
+    "height": 1017,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2026-3108e5ada7e4-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2026-3108e5ada7e4-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/sanjose-recognition-2026-3108e5ada7e4-1128.webp",
+        "width": 1128
+      }
+    ]
+  },
+  "/assets/img/gallery/sciencefair-ribbons-2026.jpg": {
+    "width": 1488,
+    "height": 1984,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/sciencefair-ribbons-2026-43dcd3fdc42f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/sciencefair-ribbons-2026-43dcd3fdc42f-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/sciencefair-ribbons-2026-43dcd3fdc42f-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/sciencefair-ribbons-2026-43dcd3fdc42f-1488.webp",
+        "width": 1488
+      }
+    ]
+  },
+  "/assets/img/gallery/sft.jpeg": {
+    "width": 4032,
+    "height": 3024,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/sft-e352db6d9726-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/sft-e352db6d9726-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/sft-e352db6d9726-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/sft-e352db6d9726-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/smka.jpeg": {
+    "width": 1982,
+    "height": 1480,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/smka-6cf07bffba91-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/smka-6cf07bffba91-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/smka-6cf07bffba91-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/smka-6cf07bffba91-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/stanford.jpeg": {
+    "width": 1024,
+    "height": 768,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/stanford-f1a46b044c67-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/stanford-f1a46b044c67-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/stanford-f1a46b044c67-1024.webp",
+        "width": 1024
+      }
+    ]
+  },
+  "/assets/img/gallery/synopsysAwards.jpg": {
+    "width": 1200,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/synopsysAwards-6c40a577af7e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/synopsysAwards-6c40a577af7e-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/synopsysAwards-6c40a577af7e-1200.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "/assets/img/gallery/tedbisv24.jpeg": {
+    "width": 1719,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tedbisv24-5889f86ea77b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tedbisv24-5889f86ea77b-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tedbisv24-5889f86ea77b-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/tedbisv24-5889f86ea77b-1719.webp",
+        "width": 1719
+      }
+    ]
+  },
+  "/assets/img/gallery/tedtalk.jpg": {
+    "width": 3198,
+    "height": 2398,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tedtalk-20ba10eb85a7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tedtalk-20ba10eb85a7-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tedtalk-20ba10eb85a7-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/tedtalk-20ba10eb85a7-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/tractv1.jpeg": {
+    "width": 1024,
+    "height": 768,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tractv1-4803193452bf-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tractv1-4803193452bf-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tractv1-4803193452bf-1024.webp",
+        "width": 1024
+      }
+    ]
+  },
+  "/assets/img/gallery/tractx-poster.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tractx-poster-080aa4662932-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tractx-poster-080aa4662932-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tractx-poster-080aa4662932-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/tractx-poster-080aa4662932-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/gallery/trophies-pineapple.jpg": {
+    "width": 1091,
+    "height": 1672,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/trophies-pineapple-3cd21650db22-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/trophies-pineapple-3cd21650db22-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/trophies-pineapple-3cd21650db22-1091.webp",
+        "width": 1091
+      }
+    ]
+  },
+  "/assets/img/gallery/whitehouse-donut.jpg": {
+    "width": 1500,
+    "height": 2000,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/whitehouse-donut-62e8fa95f276-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-donut-62e8fa95f276-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-donut-62e8fa95f276-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-donut-62e8fa95f276-1500.webp",
+        "width": 1500
+      }
+    ]
+  },
+  "/assets/img/gallery/whitehouse-selfie.jpg": {
+    "width": 2000,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/whitehouse-selfie-51c75d55bf24-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-selfie-51c75d55bf24-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-selfie-51c75d55bf24-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/whitehouse-selfie-51c75d55bf24-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/headshot-new.jpg": {
+    "width": 920,
+    "height": 1104,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/headshot-new-1bfdc640ef12-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/headshot-new-1bfdc640ef12-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/headshot-new-1bfdc640ef12-920.webp",
+        "width": 920
+      }
+    ]
+  },
+  "/assets/img/prabhalogo.png": {
+    "width": 2520,
+    "height": 2520,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/prabhalogo-8d03e7e2f452-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/prabhalogo-8d03e7e2f452-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/prabhalogo-8d03e7e2f452-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/prabhalogo-8d03e7e2f452-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/projects/CookieDispenser/app.png": {
+    "width": 2282,
+    "height": 1096,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/app-26821bc789ac-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/app-26821bc789ac-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/app-26821bc789ac-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/app-26821bc789ac-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/projects/CookieDispenser/image.png": {
+    "width": 1874,
+    "height": 1706,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/image-6d40a14574d7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/image-6d40a14574d7-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/image-6d40a14574d7-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/image-6d40a14574d7-1874.webp",
+        "width": 1874
+      }
+    ]
+  },
+  "/assets/img/projects/HomeBuilt/app.png": {
+    "width": 1786,
+    "height": 1308,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/app-a07ad393c870-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/app-a07ad393c870-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/app-a07ad393c870-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/app-a07ad393c870-1786.webp",
+        "width": 1786
+      }
+    ]
+  },
+  "/assets/img/projects/HomeBuilt/instructions.png": {
+    "width": 938,
+    "height": 722,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/instructions-09ad0d01eb59-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/instructions-09ad0d01eb59-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/instructions-09ad0d01eb59-938.webp",
+        "width": 938
+      }
+    ]
+  },
+  "/assets/img/projects/HomeBuilt/logo.png": {
+    "width": 1920,
+    "height": 1920,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/logo-5d27f601b72b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/logo-5d27f601b72b-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/logo-5d27f601b72b-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/logo-5d27f601b72b-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/projects/ReconBench/corr.png": {
+    "width": 1744,
+    "height": 1452,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/corr-f03bf76273e2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/corr-f03bf76273e2-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/corr-f03bf76273e2-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/corr-f03bf76273e2-1744.webp",
+        "width": 1744
+      }
+    ]
+  },
+  "/assets/img/projects/ReconBench/param.png": {
+    "width": 2398,
+    "height": 1424,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/param-2711de1937a7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/param-2711de1937a7-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/param-2711de1937a7-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/assets/img/optimized/param-2711de1937a7-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/assets/img/projects/ReconBench/tree.png": {
+    "width": 1212,
+    "height": 888,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tree-cdb42712d72f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tree-cdb42712d72f-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tree-cdb42712d72f-1212.webp",
+        "width": 1212
+      }
+    ]
+  },
+  "/assets/img/tractogram3.png": {
+    "width": 864,
+    "height": 192,
+    "variants": [
+      {
+        "src": "/assets/img/optimized/tractogram3-8089ecff9331-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/assets/img/optimized/tractogram3-8089ecff9331-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/assets/img/optimized/tractogram3-8089ecff9331-864.webp",
+        "width": 864
+      }
+    ]
+  }
+}

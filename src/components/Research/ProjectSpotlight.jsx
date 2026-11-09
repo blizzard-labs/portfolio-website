@@ -1,3 +1,4 @@
+import ResponsiveImage from '../ResponsiveImage';
 import { useState, useEffect, useRef } from 'react';
 import PdfViewer from './PdfViewer';
 
@@ -11,13 +12,13 @@ const buildSlides = (project) => [
 ];
 
 const Thumb = ({ slide }) => {
-  if (slide.type === 'pdf') return <img src={slide.thumb} alt="" draggable="false" className="is-doc" />;
-  if (slide.type === 'image') return <img src={slide.thumb || slide.src} alt="" draggable="false" />;
+  if (slide.type === 'pdf') return <ResponsiveImage src={slide.thumb} sizes="120px" maxWidth={320} alt="" draggable="false" className="is-doc" />;
+  if (slide.type === 'image') return <ResponsiveImage src={slide.thumb || slide.src} sizes="120px" maxWidth={320} alt="" draggable="false" />;
   if (slide.type === 'video' || slide.type === 'clip') {
     const src = slide.type === 'clip' ? slide.thumb : `https://img.youtube.com/vi/${youtubeId(slide.src)}/hqdefault.jpg`;
     return (
       <>
-        <img src={src} alt="" draggable="false" />
+        <ResponsiveImage src={src} sizes="120px" maxWidth={320} alt="" draggable="false" />
         <span className="spotlight-play" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
         </span>
@@ -91,9 +92,11 @@ const ProjectSpotlight = ({ project, onOpenImage, blockKeys }) => {
         {slide.type === 'pdf' && <PdfViewer key={slide.src} src={slide.src} title={slide.label} />}
 
         {slide.type === 'image' && (
-          <img
+          <ResponsiveImage
             className="spotlight-image"
             src={slide.src}
+            sizes="80vw"
+            loading="eager"
             alt={slide.alt}
             draggable="false"
             onClick={() => onOpenImage(slide)}

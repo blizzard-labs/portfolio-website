@@ -1,3 +1,4 @@
+import ResponsiveImage from '../ResponsiveImage';
 import { personalInfo } from '../../data/content';
 import './About.css';
 
@@ -37,8 +38,11 @@ const About = () => {
         <div className="about-grid">
           <div className="about-image-wrapper">
             <div className="about-image-frame">
-              <img 
-                src={personalInfo.headshot} 
+              <ResponsiveImage
+                src={personalInfo.headshot}
+                sizes="(max-width: 1024px) 400px, 450px"
+                loading="eager"
+                fetchPriority="high"
                 alt={personalInfo.name}
                 className="about-image"
               />
@@ -68,7 +72,7 @@ const About = () => {
               <h3 className="interests-title">Questions at Every Scale</h3>
               <div className="interests-grid">
                 {personalInfo.interests.map((interest, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="interest-item"
                   >

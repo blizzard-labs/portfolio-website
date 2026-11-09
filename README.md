@@ -4,6 +4,28 @@ React + Vite website: **https://krishna-bhatt.com**
 
 Repository: https://github.com/blizzard-labs/portfolio-website
 
+## Image optimization
+
+Page images use committed WebP variants (320–1920px) through `ResponsiveImage`.
+Gallery tiles and project thumbnails request smaller sizes; expanded views request
+larger ones. Originals remain available, but are not used by these page images.
+The portrait is preloaded and other images load lazily.
+WebP conversion preserves embedded ICC color profiles while omitting EXIF metadata.
+Portrait and gallery photos have a subtle CSS color adjustment (6% saturation,
+1% contrast); research figures retain their original rendering.
+
+After adding or replacing an image referenced in `src`, run on macOS with `cwebp`
+installed (`brew install webp`):
+
+```bash
+python3 scripts/optimize-images.py
+npm run build
+```
+
+Commit `public/assets/img/optimized`, `src/data/image-manifest.json`, and the build
+alongside the source changes. Regular builds and VM deployment need no image tools.
+Use `ResponsiveImage` for new images and provide `sizes` matching their CSS width.
+
 For the existing Google Cloud VM, follow **Update the website**. For a fresh Ubuntu VM, complete **Set up a new VM** first, then use the same update commands.
 
 ## Connect to the VM

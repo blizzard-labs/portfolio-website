@@ -68,12 +68,12 @@
 .about-image {
   width: 100%;
   height: auto;
-  filter: none;
+  filter: saturate(1.06) contrast(1.01);
   transition: filter 0.5s ease;
 }
 
 .about-image-frame:hover .about-image {
-  filter: none;
+  filter: saturate(1.06) contrast(1.01);
 }
 
 .image-corner {

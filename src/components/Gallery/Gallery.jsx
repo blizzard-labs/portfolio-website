@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
+import ResponsiveImage from '../ResponsiveImage';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { galleryImages } from '../../data/content';
 import './Gallery.css';
 
@@ -22,13 +23,20 @@ const AUTO_SPEED = 20; // px per second
 const getSetWidth = (track) => (track ? track.scrollWidth / LOOP_COPIES : 0);
 
 const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
-  // Start in the middle set so there is room to scroll both directions
-  useEffect(() => {
+  // Center once before paint; resizing must preserve the current photo position.
+  useLayoutEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const center = () => { track.scrollLeft = getSetWidth(track); };
-    center();
-    const observer = new ResizeObserver(center);
+    let setWidth = getSetWidth(track);
+    track.scrollLeft = setWidth;
+    const observer = new ResizeObserver(() => {
+      const nextWidth = getSetWidth(track);
+      if (!nextWidth || nextWidth === setWidth) return;
+      // Scrollbar changes only resize the viewport. If tiles themselves resize,
+      // retain the same fractional position within the repeated image sets.
+      track.scrollLeft = setWidth ? track.scrollLeft * nextWidth / setWidth : nextWidth;
+      setWidth = nextWidth;
+    });
     observer.observe(track);
     return () => observer.disconnect();
   }, [trackRef]);
@@ -90,8 +98,10 @@ const GalleryRow = ({ items, direction, trackRef, pauseRef, onSelect }) => {
             aria-hidden={copy !== 1}
             onClick={() => onSelect({ ...image, index })}
           >
-            <img
+            <ResponsiveImage
               src={image.src}
+              sizes="(max-height: 583px) 187px, (max-height: 1083px) 32vh, 347px"
+              maxWidth={1280}
               alt={copy === 1 ? image.alt : ''}
               style={image.position && { objectPosition: image.position }}
               loading="lazy"
@@ -263,8 +273,10 @@ const Gallery = () => {
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
             </button>
-            <img
+            <ResponsiveImage
               src={selectedImage.src}
+              sizes="90vw"
+              loading="eager"
               alt={selectedImage.alt}
             />
             <div className="lightbox-caption">

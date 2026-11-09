@@ -30,8 +30,7 @@ export const projects = [
       { type: "video", label: "Research Overview", src: "https://youtu.be/1w8bLjzduX4" },
       { type: "video", label: "Live Demo", src: "https://youtu.be/2H2K4UVOt9A" },
       { type: "pdf", label: "Quad Chart", src: "/assets/img/projects/THALis/quadchart-58c164e853d11653.pdf", thumb: "/assets/img/projects/THALis/quadchart-thumb-45ddac0eb572f5f7.webp" },
-      { type: "pdf", label: "Expert Commentary", src: "/assets/img/projects/THALis/expert-commentary-db2b7dd7f7b31e12.pdf", thumb: "/assets/img/projects/THALis/expert-commentary-thumb-f77117f62b8c2828.webp" },
-      { type: "pdf", label: "Proposal", src: "/assets/img/projects/THALis/proposal-f9bbaf8c7df0b1cd.pdf", thumb: "/assets/img/projects/THALis/proposal-thumb-94cbce924bbb5ce1.webp" }
+      { type: "pdf", label: "Expert Commentary", src: "/assets/img/projects/THALis/expert-commentary-db2b7dd7f7b31e12.pdf", thumb: "/assets/img/projects/THALis/expert-commentary-thumb-f77117f62b8c2828.webp" }
     ],
     resourceNotice: {
       text: "THALis is still under development, so not all details can be publicly shared at this time. For specific inquiries, please reach out to me at",
@@ -351,6 +350,7 @@ export const readings = [
 ];
 
 export const galleryImages = [
+  { src: "/assets/img/gallery/brain-brew-walk-to-end-alzheimers.png", alt: "Fun games at the Walk to End Alzheimer's! [Oct 2026]" },
   { src: "/assets/img/gallery/cityhall-purple.jpg", alt: "We lit city hall purple for Alzheimer's!", position: "center 80%" },
   { src: "/assets/img/gallery/brainbrew-filming.jpg", alt: "Filming day for the Brain Brew Ride [Oct 2026]" },
   { src: "/assets/img/gallery/alamo-square-empathy-cafe.jpg", alt: "Alamo Square with the Empathy Cafe" },
