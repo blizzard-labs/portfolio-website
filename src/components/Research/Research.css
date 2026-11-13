@@ -518,7 +518,7 @@
   background: var(--color-ivory);
 }
 
-.spotlight-resource-notice {
+.project-development-notice {
   margin: 0 0 2rem;
   font-family: var(--font-serif);
   font-size: 1rem;
@@ -526,7 +526,7 @@
   color: var(--color-ink);
 }
 
-.spotlight-resource-notice a {
+.project-development-notice a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.2em;

@@ -30,9 +30,12 @@ export const projects = [
       { type: "video", label: "Research Overview", src: "https://youtu.be/1w8bLjzduX4" },
       { type: "video", label: "Live Demo", src: "https://youtu.be/2H2K4UVOt9A" },
       { type: "pdf", label: "Quad Chart", src: "/assets/img/projects/THALis/quadchart-58c164e853d11653.pdf", thumb: "/assets/img/projects/THALis/quadchart-thumb-45ddac0eb572f5f7.webp" },
-      { type: "pdf", label: "Expert Commentary", src: "/assets/img/projects/THALis/expert-commentary-db2b7dd7f7b31e12.pdf", thumb: "/assets/img/projects/THALis/expert-commentary-thumb-f77117f62b8c2828.webp" }
+      { type: "pdf", label: "Expert Commentary", src: "/assets/img/projects/THALis/expert-commentary-db2b7dd7f7b31e12.pdf", thumb: "/assets/img/projects/THALis/expert-commentary-thumb-f77117f62b8c2828.webp" },
+      { type: "pdf", label: "Supplement #1", src: "/assets/img/projects/THALis/supplement-1-88a8ff8d80fbb4f7.pdf", thumb: "/assets/img/projects/THALis/supplement-1-thumb-d6b05db595c48fe8.webp" },
+      { type: "pdf", label: "Supplement #2", src: "/assets/img/projects/THALis/supplement-2-0445e74ca29d2a3c.pdf", thumb: "/assets/img/projects/THALis/supplement-2-thumb-46ed796598ab0ba4.webp" },
+      { type: "pdf", label: "Supplement #3", src: "/assets/img/projects/THALis/supplement-3-5f84395131caea76.pdf", thumb: "/assets/img/projects/THALis/supplement-3-thumb-06d9fe8adc7a7d7a.webp" }
     ],
-    resourceNotice: {
+    developmentNotice: {
       text: "THALis is still under development, so not all details can be publicly shared at this time. For specific inquiries, please reach out to me at",
       email: "krishbhatt2019@gmail.com"
     },

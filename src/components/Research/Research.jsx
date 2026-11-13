@@ -152,6 +152,13 @@ const Research = () => {
                   )}
                 </p>
 
+                {selectedProject.developmentNotice && (
+                  <p className="project-development-notice">
+                    {selectedProject.developmentNotice.text}{' '}
+                    <a href={`mailto:${selectedProject.developmentNotice.email}`}>{selectedProject.developmentNotice.email}</a>.
+                  </p>
+                )}
+
                 {selectedProject.motivation && (
                   <div className="modal-motivation">
                     <h4>Motivation</h4>

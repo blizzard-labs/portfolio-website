@@ -12,7 +12,14 @@ const buildSlides = (project) => [
 ];
 
 const Thumb = ({ slide }) => {
-  if (slide.type === 'pdf') return <ResponsiveImage src={slide.thumb} sizes="120px" maxWidth={320} alt="" draggable="false" className="is-doc" />;
+  if (slide.type === 'pdf' && slide.thumb) return <ResponsiveImage src={slide.thumb} sizes="120px" maxWidth={320} alt="" draggable="false" className="is-doc" />;
+  if (slide.type === 'pdf') return (
+    <span className="spotlight-thumb-text" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M14 2H6v20h12V6z M14 2v5h4 M9 12h6 M9 16h6" />
+      </svg>
+    </span>
+  );
   if (slide.type === 'image') return <ResponsiveImage src={slide.thumb || slide.src} sizes="120px" maxWidth={320} alt="" draggable="false" />;
   if (slide.type === 'video' || slide.type === 'clip') {
     const src = slide.type === 'clip' ? slide.thumb : `https://img.youtube.com/vi/${youtubeId(slide.src)}/hqdefault.jpg`;
@@ -105,12 +112,6 @@ const ProjectSpotlight = ({ project, onOpenImage, blockKeys }) => {
 
         {slide.type === 'resources' && (
           <div className="spotlight-panel modal-resources">
-            {project.resourceNotice && (
-              <p className="spotlight-resource-notice">
-                {project.resourceNotice.text}{' '}
-                <a href={`mailto:${project.resourceNotice.email}`}>{project.resourceNotice.email}</a>.
-              </p>
-            )}
             {project.abstract && (
               <div className="spotlight-abstract">
                 <h4>Abstract</h4>
